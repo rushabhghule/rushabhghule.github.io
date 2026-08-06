@@ -506,6 +506,10 @@
             color: var(--primary);
             margin-bottom: 0.75rem;
             font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
         }
 
         .project-meta {
@@ -537,6 +541,32 @@
             position: absolute;
             left: -1rem;
             color: var(--accent);
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .github-link:hover {
+            color: var(--primary);
+            gap: 0.75rem;
+        }
+
+        .github-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .github-link:hover::after {
+            transform: translateX(4px);
         }
 
         /* ==================== EDUCATION SECTION ==================== */
@@ -574,13 +604,42 @@
             line-height: 1.7;
         }
 
+        /* ==================== CERTIFICATION CARDS ==================== */
+        .cert-category {
+            margin-bottom: 3rem;
+        }
+
+        .cert-category-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cert-category-title::before {
+            content: '';
+            width: 3px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
         .certification-item {
             background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
-            padding: 1.25rem;
+            padding: 1.75rem;
             border-left: 4px solid var(--warning);
-            margin-bottom: 1rem;
-            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
             border: 1px solid #fef3c7;
+            transition: all 0.3s ease;
+        }
+
+        .certification-item:hover {
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+            transform: translateX(4px);
         }
 
         .cert-name {
@@ -593,7 +652,40 @@
         .cert-issuer {
             color: var(--text-light);
             font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-meta {
+            color: var(--text-lighter);
+            font-size: 0.85rem;
             font-weight: 500;
+        }
+
+        .cert-verify {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-verify:hover {
+            color: var(--primary);
+            gap: 0.6rem;
+        }
+
+        .cert-verify::after {
+            content: '↗';
+            transition: transform 0.3s ease;
+        }
+
+        .cert-verify:hover::after {
+            transform: translate(2px, -2px);
         }
 
         /* ==================== VOLUNTEER CARDS ==================== */
@@ -751,7 +843,7 @@
 
         /* ==================== SCROLL ANIMATIONS ==================== */
         @media (prefers-reduced-motion: no-preference) {
-            section, .project-card, .volunteer-card, .education-item, .skill-category {
+            section, .project-card, .volunteer-card, .education-item, .skill-category, .certification-item {
                 animation: fadeInUp 0.6s ease-out;
             }
 
@@ -776,6 +868,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
             </ul>
@@ -911,7 +1004,10 @@
 
             <div class="project-card ai-project">
                 <span class="ai-badge">AI Automation · MVP/Beta</span>
-                <div class="project-title">BoardMaster</div>
+                <div class="project-title">
+                    BoardMaster
+                    <a href="https://github.com/rushabhghule/boardmaster" target="_blank" class="github-link">View on GitHub</a>
+                </div>
                 <div class="project-meta">Current Project - In Development</div>
                 <div class="project-description">
                     <p>AI-powered automation tool that streamlines Pinterest pin management. Automates curation of pin titles, descriptions, and SEO optimization, reducing posting time from 2-3 hours to minutes per session.</p>
@@ -926,7 +1022,10 @@
 
             <div class="project-card ai-project">
                 <span class="ai-badge">AI Platform Agnostic · Full System</span>
-                <div class="project-title">CandidatePro</div>
+                <div class="project-title">
+                    CandidatePro
+                    <a href="https://github.com/rushabhghule/candidatepro" target="_blank" class="github-link">View on GitHub</a>
+                </div>
                 <div class="project-meta">Current Project - In Development</div>
                 <div class="project-description">
                     <p>Comprehensive job application prep system that generates fully customized outputs based on specific job descriptions. Works with any AI tool (Claude, ChatGPT, etc.), offering flexibility and practical utility.</p>
@@ -972,70 +1071,41 @@
             </div>
         </section>
 
-        <!-- VOLUNTEERING SECTION -->
-        <section id="volunteering" class="highlight-success">
-            <h2>Leadership & Community</h2>
+        <!-- CERTIFICATIONS SECTION -->
+        <section id="certifications">
+            <h2>Professional Certifications</h2>
 
-            <div class="volunteer-card">
-                <div class="volunteer-title">Campus Ambassador</div>
-                <div class="volunteer-org">GS Global Academy · Part-time, Remote/Pune</div>
-                <div class="volunteer-org">Feb 2026 - Present</div>
-                <div class="volunteer-description">
-                    I help raise awareness about academic programs to prospective students and manage campus communications through multiple channels. Focus on personalized outreach and event coordination.
+            <div class="cert-category">
+                <div class="cert-category-title">Marketing & Sales</div>
+                <div class="certification-item">
+                    <div class="cert-name">Inbound Certified</div>
+                    <div class="cert-issuer">HubSpot Academy</div>
+                    <div class="cert-meta">Issued Aug 2026 · Valid until Sep 2028</div>
+                    <a href="https://academy.hubspot.com/credentials/01ae72871c764dc8b1d9721c57385af5" target="_blank" class="cert-verify">Verify Credential</a>
                 </div>
-                <ul class="volunteer-highlights">
-                    <li>Achieved 35% response rate on targeted outreach via calls, emails, and messaging</li>
-                    <li>Organized 10+ campus engagement events and monitored feedback for continuous improvement</li>
-                    <li>Collaborated across faculty, admissions, and operations teams to execute outreach strategy</li>
-                </ul>
+
+                <div class="certification-item">
+                    <div class="cert-name">Digital Marketing Certified</div>
+                    <div class="cert-issuer">HubSpot Academy</div>
+                    <div class="cert-meta">Credential ID: mytn8f1n</div>
+                    <a href="https://academy.hubspot.com/credentials/mytn8f1n" target="_blank" class="cert-verify">Verify Credential</a>
+                </div>
             </div>
 
-            <div class="volunteer-card">
-                <div class="volunteer-title">Training & Placement Coordinator</div>
-                <div class="volunteer-org">Neville Wadia Institute of Management Studies & Research</div>
-                <div class="volunteer-org">Mar 2026 - Present</div>
-                <div class="volunteer-description">
-                    Supporting placement initiatives by managing student records, coordinating recruitment drives, and connecting companies with opportunities and candidates with careers.
+            <div class="cert-category">
+                <div class="cert-category-title">Data & Analytics</div>
+                <div class="certification-item">
+                    <div class="cert-name">Data Fundamentals</div>
+                    <div class="cert-issuer">IBM</div>
+                    <div class="cert-meta">Issued Aug 2026</div>
+                    <div class="cert-meta">Credential ID: c0be871b-80a5-4cdf-ba5a-e73fa3dd1c9c</div>
                 </div>
-                <ul class="volunteer-highlights">
-                    <li>Maintained detailed records for 200+ students, organizing internship and placement data for accessibility</li>
-                    <li>Assisted in organizing campus recruitment drives and facilitated communication between companies and candidates</li>
-                    <li>Contributed to interview coordination ensuring smooth communication among all parties</li>
-                </ul>
-            </div>
-
-            <div class="volunteer-card">
-                <div class="volunteer-title">Cultural Secretary</div>
-                <div class="volunteer-org">Neville Wadia Institute of Management Studies & Research</div>
-                <div class="volunteer-org">Sep 2025 - Present</div>
-                <div class="volunteer-description">
-                    Plan and execute college events that matter, from flagship programs to regular student activities that build community and foster engagement.
-                </div>
-                <ul class="volunteer-highlights">
-                    <li>Plan and execute flagship college events and regular student programs</li>
-                    <li>Organize guest lectures, movie screenings, cultural activities, and talent showcases</li>
-                    <li>Coordinate with faculty and student teams for successful delivery of academic and cultural initiatives</li>
-                </ul>
-            </div>
-
-            <div class="volunteer-card">
-                <div class="volunteer-title">Student Council Member</div>
-                <div class="volunteer-org">Neville Wadia Institute of Management Studies & Research</div>
-                <div class="volunteer-org">Sep 2025 - Present</div>
-                <div class="volunteer-description">
-                    Represent student interests and help plan institutional initiatives that enhance campus life and student experience.
-                </div>
-                <ul class="volunteer-highlights">
-                    <li>Represent student interests and contribute to planning of institutional initiatives</li>
-                    <li>Collaborate with faculty and administrative departments on academic and extracurricular activities</li>
-                    <li>Support effective communication and student engagement across the institute</li>
-                </ul>
             </div>
         </section>
 
         <!-- EDUCATION SECTION -->
         <section id="education">
-            <h2>Education & Certifications</h2>
+            <h2>Education</h2>
 
             <div class="education-item">
                 <div class="education-title">Master of Business Administration (MBA)</div>
@@ -1053,20 +1123,6 @@
                     <p><strong>Jun 2022 - Apr 2025</strong> · SGPA: 8.68</p>
                     <p>Served as Head of Chess & Debate Team. Performed in theme dance that contributed to college securing Runner-Up at Bhimashankar Karandak 2025.</p>
                 </div>
-            </div>
-
-            <h3 style="margin-top: 2rem;">Certifications</h3>
-
-            <div class="certification-item">
-                <div class="cert-name">Data Fundamentals</div>
-                <div class="cert-issuer">IBM · Issued Aug 2026</div>
-                <p style="font-size: 0.9rem; color: var(--text-lighter); margin-top: 0.5rem;">Credential ID: c0be871b-80a5-4cdf-ba5a-e73fa3dd1c9c</p>
-            </div>
-
-            <div class="certification-item">
-                <div class="cert-name">Digital Marketing Certified</div>
-                <div class="cert-issuer">HubSpot Academy</div>
-                <p style="font-size: 0.9rem; color: var(--text-lighter); margin-top: 0.5rem;">Credential ID: mytn8f1n</p>
             </div>
         </section>
 
@@ -1146,6 +1202,67 @@
                         <li>Warehouse Management</li>
                     </ul>
                 </div>
+            </div>
+        </section>
+
+        <!-- VOLUNTEERING SECTION -->
+        <section id="volunteering" class="highlight-success">
+            <h2>Leadership & Community</h2>
+
+            <div class="volunteer-card">
+                <div class="volunteer-title">Campus Ambassador</div>
+                <div class="volunteer-org">GS Global Academy · Part-time, Remote/Pune</div>
+                <div class="volunteer-org">Feb 2026 - Present</div>
+                <div class="volunteer-description">
+                    I help raise awareness about academic programs to prospective students and manage campus communications through multiple channels. Focus on personalized outreach and event coordination.
+                </div>
+                <ul class="volunteer-highlights">
+                    <li>Achieved 35% response rate on targeted outreach via calls, emails, and messaging</li>
+                    <li>Organized 10+ campus engagement events and monitored feedback for continuous improvement</li>
+                    <li>Collaborated across faculty, admissions, and operations teams to execute outreach strategy</li>
+                </ul>
+            </div>
+
+            <div class="volunteer-card">
+                <div class="volunteer-title">Training & Placement Coordinator</div>
+                <div class="volunteer-org">Neville Wadia Institute of Management Studies & Research</div>
+                <div class="volunteer-org">Mar 2026 - Present</div>
+                <div class="volunteer-description">
+                    Supporting placement initiatives by managing student records, coordinating recruitment drives, and connecting companies with opportunities and candidates with careers.
+                </div>
+                <ul class="volunteer-highlights">
+                    <li>Maintained detailed records for 200+ students, organizing internship and placement data for accessibility</li>
+                    <li>Assisted in organizing campus recruitment drives and facilitated communication between companies and candidates</li>
+                    <li>Contributed to interview coordination ensuring smooth communication among all parties</li>
+                </ul>
+            </div>
+
+            <div class="volunteer-card">
+                <div class="volunteer-title">Cultural Secretary</div>
+                <div class="volunteer-org">Neville Wadia Institute of Management Studies & Research</div>
+                <div class="volunteer-org">Sep 2025 - Present</div>
+                <div class="volunteer-description">
+                    Plan and execute college events that matter, from flagship programs to regular student activities that build community and foster engagement.
+                </div>
+                <ul class="volunteer-highlights">
+                    <li>Plan and execute flagship college events and regular student programs</li>
+                    <li>Organize guest lectures, movie screenings, cultural activities, and talent showcases</li>
+                    <li>Coordinate with faculty and student teams for successful delivery of academic and cultural initiatives</li>
+                </ul>
+            </div>
+
+            <div class="volunteer-card">
+                <div class="volunteer-title">Student Council Member</div>
+                <div class="volunteer-org">Neville Wadia Institute of Management Studies & Research</div>
+                <div class="volunteer-org">Sep 2025 - Present</div>
+                <div class="volunteer-description">
+                    Represent student interests and help plan institutional initiatives that enhance campus life and student experience.
+                </div>
+                <ul class="volunteer-highlights">
+                    <li>Represent student interests and contribute to planning of institutional initiatives</li>
+                    <li>Collaborate with faculty and administrative departments on academic and extracurricular activities</li>
+                    <li>Support effective communication and student engagement across the institute</li>
+                </ul>
             </div>
         </section>
     </main>
