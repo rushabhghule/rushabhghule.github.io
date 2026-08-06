@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rushabh Ghule - Operations | Analytics | AI Automation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f2d4d;
+            --primary-light: #1a3f5a;
+            --accent: #0066cc;
+            --accent-light: #e6f0ff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --text-lighter: #999999;
+            --bg: #ffffff;
+            --bg-subtle: #f8fafb;
+            --border: #e0e0e0;
+            --divider: #f0f0f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-subtle);
+            overflow-x: hidden;
+        }
+
+        /* ==================== HEADER & NAV ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(224, 224, 224, 0.5);
+            z-index: 1000;
+            padding: 0.75rem 0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            position: relative;
+            margin-top: 60px;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f8fafb 0%, #ffffff 50%, #f0f7ff 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 102, 204, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -5%;
+            left: -5%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            letter-spacing: -1.5px;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .hero-text .description {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid;
+        }
+
+        .cta-button.primary {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .cta-button.primary:hover {
+            background: #0052a3;
+            border-color: #0052a3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 102, 204, 0.2);
+        }
+
+        .cta-button.secondary {
+            background: white;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .hero-contact {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .contact-item a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
+
+        section {
+            background: var(--bg);
+            padding: 4rem 3rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        section.highlight {
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            border-color: #d9e8ff;
+        }
+
+        section.highlight-success {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            border-color: #d1fae5;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        h4 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .role-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .role-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .role-meta {
+            font-size: 0.85rem;
+            color: var(--text-lighter);
+            font-weight: 500;
+        }
+
+        .description {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .highlights {
+            background: var(--accent-light);
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            margin: 1.5rem 0;
+            border-radius: 6px;
+        }
+
+        .highlights ul {
+            margin: 0;
+            padding: 0 0 0 1.5rem;
+            list-style: none;
+        }
+
+        .highlights li {
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+            padding-left: 0.5rem;
+            position: relative;
+        }
+
+        .highlights li::before {
+            content: '✓';
+            position: absolute;
+            left: -1.25rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* ==================== SKILLS SECTION ==================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 102, 204, 0.1);
+        }
+
+        .skill-category h4 {
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-category h4::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .skill-category li:before {
+            content: "▸ ";
+            color: var(--accent);
+            margin-right: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* ==================== PROJECT CARDS ==================== */
+        .project-card {
+            background: #f0f7ff;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--success);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid #d9e8ff;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.12);
+            transform: translateX(4px);
+        }
+
+        .project-card.ai-project {
+            background: linear-gradient(135deg, #ecf2ff 0%, #f0f7ff 100%);
+            border-left-color: var(--accent);
+        }
+
+        .ai-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #0052a3 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .project-meta {
+            color: var(--text-lighter);
+            font-size: 0.85rem;
+            margin-bottom: 1.25rem;
+            font-weight: 500;
+        }
+
+        .project-description {
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .project-description ul {
+            margin: 1.25rem 0 0 1.5rem;
+            padding: 0;
+            list-style: none;
+        }
+
+        .project-description li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+
+        .project-description li::before {
+            content: '▪';
+            position: absolute;
+            left: -1rem;
+            color: var(--accent);
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .github-link:hover {
+            color: var(--primary);
+            gap: 0.75rem;
+        }
+
+        .github-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .github-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* ==================== EDUCATION SECTION ==================== */
+        .education-item {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--success);
+            border: 1px solid #d1fae5;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.1);
+        }
+
+        .education-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .education-school {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .education-details {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* ==================== CERTIFICATION CARDS ==================== */
+        .cert-category {
+            margin-bottom: 3rem;
+        }
+
+        .cert-category-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cert-category-title::before {
+            content: '';
+            width: 3px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .certification-item {
+            background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+            padding: 1.75rem;
+            border-left: 4px solid var(--warning);
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #fef3c7;
+            transition: all 0.3s ease;
+        }
+
+        .certification-item:hover {
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+            transform: translateX(4px);
+        }
+
+        .cert-name {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-meta {
+            color: var(--text-lighter);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .cert-verify {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-verify:hover {
+            color: var(--primary);
+            gap: 0.6rem;
+        }
+
+        .cert-verify::after {
+            content: '↗';
+            transition: transform 0.3s ease;
+        }
+
+        .cert-verify:hover::after {
+            transform: translate(2px, -2px);
+        }
+
+        /* ==================== VOLUNTEER CARDS ==================== */
+        .volunteer-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--success);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid #d1fae5;
+        }
+
+        .volunteer-card:hover {
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.12);
+            transform: translateX(4px);
+        }
+
+        .volunteer-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .volunteer-org {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .volunteer-description {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .volunteer-highlights {
+            margin-left: 1.5rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .volunteer-highlights li {
+            margin-bottom: 0.65rem;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+
+        .volunteer-highlights li::before {
+            content: '▪';
+            position: absolute;
+            left: -1.25rem;
+            color: var(--success);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, #0a1f2e 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .footer-meta {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .hero-header {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            main {
+                padding: 0 1rem 1rem;
+            }
+
+            section {
+                padding: 2rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-button {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-contact {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                gap: 1.5rem;
+            }
+        }
+
+        /* ==================== SCROLL ANIMATIONS ==================== */
+        @media (prefers-reduced-motion: no-preference) {
+            section, .project-card, .volunteer-card, .education-item, .skill-category, .certification-item {
+                animation: fadeInUp 0.6s ease-out;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home" class="logo">Rushabh Ghule</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-header">
+                <div class="hero-text">
+                    <h1>Problem Solver. Builder. Strategist.</h1>
+                    <p class="subtitle">I identify bottlenecks, build solutions, and drive measurable outcomes through operations, data, and AI.</p>
+                    <p class="description">With experience in process optimization, inventory management, data-driven strategy, and AI automation, I approach complex challenges systematically. Whether it's eliminating workflow inefficiencies, analyzing consumer behavior, or automating repetitive tasks, I focus on delivering real impact.</p>
+                    <div class="cta-buttons">
+                        <a href="mailto:rushabhg893@gmail.com" class="cta-button primary">Get In Touch</a>
+                        <a href="https://github.com/rushabhghule" target="_blank" class="cta-button secondary">View GitHub</a>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">1.2M+</div>
+                        <div class="stat-label">Monthly Audience Reach</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25%</div>
+                        <div class="stat-label">Stockouts Reduced</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">60%</div>
+                        <div class="stat-label">Workflow Bottleneck Identified</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8.23</div>
+                        <div class="stat-label">MBA SGPA</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-contact">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:rushabhg893@gmail.com">rushabhg893@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <a href="https://www.linkedin.com/in/rushabhghule" target="_blank">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <span>💻</span>
+                    <a href="https://github.com/rushabhghule" target="_blank">GitHub</a>
+                </div>
+                <div class="contact-item">
+                    <span>📸</span>
+                    <a href="https://in.pinterest.com/rogersg17/" target="_blank">Pinterest</a>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Pune, India</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- ABOUT SECTION -->
+        <section id="about" class="highlight">
+            <h2>About Me</h2>
+            <div class="description">
+                <p>I solve real problems across operations, analytics, and AI automation. My background spans inventory management, process optimization, event coordination, and AI-powered tool development. Whether I'm analyzing why a workflow is slow, finding patterns in consumer behavior, or automating repetitive work, I approach everything the same way: understand the system, identify the gap, and build a solution that delivers measurable results.</p>
+            </div>
+            <div class="description">
+                <p>Currently, I'm an MBA candidate at Neville Wadia Institute (SGPA: 8.23) focused on strategic thinking, operations management, and business acumen. I'm particularly interested in how AI can eliminate tedious work and drive efficiency. If you're working on something where data, strategy, or automation matters, I'd love to connect.</p>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
+
+            <h3>Operations Executive</h3>
+            <div class="role-info">
+                <span class="role-title">IOWeb3 Technologies · Internship</span>
+                <span class="role-meta">Mar 2026 - May 2026 · On-site, Pune</span>
+            </div>
+            <div class="description">
+                I was the field operations lead responsible for coordinating video data collection through rotating workforce, maintaining documentation standards, and ensuring process consistency despite frequent workforce changes.
+            </div>
+            <div class="highlights">
+                <ul>
+                    <li>Created SOPs and standardized documentation that enabled quick workforce onboarding and maintained consistency</li>
+                    <li>Managed data collection and organization while providing daily operational reports to the operations team</li>
+                    <li>Identified opportunities to automate repetitive steps, reducing manual work and improving overall efficiency</li>
+                </ul>
+            </div>
+
+            <h3>Process Optimization Research Intern</h3>
+            <div class="role-info">
+                <span class="role-title">Bright LumiTech Private Limited · Internship</span>
+                <span class="role-meta">Feb 2026 - Mar 2026 · Hybrid, Pune</span>
+            </div>
+            <div class="description">
+                Conducted comprehensive analysis of a 5-stage engineering workflow by interviewing 25-30 employees and mapping processes to identify critical bottlenecks and root causes.
+            </div>
+            <div class="highlights">
+                <ul>
+                    <li>Identified that design phase consumed 60% of total workflow time due to incomplete intake data</li>
+                    <li>Conducted root cause analysis using Fishbone Diagram methodology across multiple workflow stages</li>
+                    <li>Developed standardized intake templates, SOPs, and process documentation to eliminate recurring inefficiencies</li>
+                </ul>
+            </div>
+
+            <h3>Inventory & Sales Executive</h3>
+            <div class="role-info">
+                <span class="role-title">Self-employed · Full-time</span>
+                <span class="role-meta">Jun 2024 - Aug 2025 · On-site, Manchar, Maharashtra</span>
+            </div>
+            <div class="description">
+                Managed retail operations by leveraging data analysis to make smarter inventory decisions. Built systems for demand forecasting, inventory optimization, and regular audits to maintain accuracy and reduce losses.
+            </div>
+            <div class="highlights">
+                <ul>
+                    <li>Reduced stockouts by 25% through data-driven forecasting based on inventory and customer behavior analysis</li>
+                    <li>Increased sales by 15% with actionable insights on product placement and visibility strategy</li>
+                    <li>Maintained less than 2% inventory discrepancy through monthly audits and system reconciliation</li>
+                    <li>Redesigned warehouse layout and contributed to automating reorder processes for fast-moving items</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <h2>Projects & Innovation</h2>
+
+            <div class="project-card ai-project">
+                <span class="ai-badge">AI Automation · MVP/Beta</span>
+                <div class="project-title">
+                    BoardMaster
+                    <a href="https://github.com/rushabhghule/boardmaster" target="_blank" class="github-link">View on GitHub</a>
+                </div>
+                <div class="project-meta">Current Project - In Development</div>
+                <div class="project-description">
+                    <p>AI-powered automation tool that streamlines Pinterest pin management. Automates curation of pin titles, descriptions, and SEO optimization, reducing posting time from 2-3 hours to minutes per session.</p>
+                    <strong>Problem Solved:</strong>
+                    <ul>
+                        <li>Manual posting of 20-30 pins takes 2-3 hours and requires individual optimization</li>
+                        <li>Ensures consistency across pin metadata for better audience engagement</li>
+                        <li>Frees up time to focus on content strategy instead of execution</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-card ai-project">
+                <span class="ai-badge">AI Platform Agnostic · Full System</span>
+                <div class="project-title">
+                    CandidatePro
+                    <a href="https://github.com/rushabhghule/candidatepro" target="_blank" class="github-link">View on GitHub</a>
+                </div>
+                <div class="project-meta">Current Project - In Development</div>
+                <div class="project-description">
+                    <p>Comprehensive job application prep system that generates fully customized outputs based on specific job descriptions. Works with any AI tool (Claude, ChatGPT, etc.), offering flexibility and practical utility.</p>
+                    <strong>System Capabilities:</strong>
+                    <ul>
+                        <li>L1 (Light Prep): Optimized resume, company research, outreach messages, interview Q&A</li>
+                        <li>L2 (Solid Prep): L1 + dos/donts guide, cover letter, and role-specific strategy</li>
+                        <li>All outputs tailored to target job description, not generic templates</li>
+                        <li>Works with any AI tool, providing flexibility based on preference or availability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem;">Other Projects</h3>
+
+            <div class="project-card">
+                <div class="project-title">Pinterest Audience Growth Through Organic Content</div>
+                <div class="project-meta">Apr 2023 - Present · 1.2M+ Monthly Views</div>
+                <div class="project-description">
+                    <p>Built and managed photography-focused Pinterest account demonstrating expertise in content strategy, audience analytics, and digital marketing. Started as a personal project sharing mobile photography and grew into a community with 1.2M+ monthly audience reach.</p>
+                    <strong>Key Achievements:</strong>
+                    <ul>
+                        <li>Created original mobile photography featuring nature, wildlife, landscapes, and creative compositions</li>
+                        <li>Applied Pinterest SEO, keyword optimization, and audience insights to maximize visibility</li>
+                        <li>Analyzed performance data to refine strategy, identify high-performing content themes, and scale impact</li>
+                        <li>Demonstrated expertise in content creation, digital marketing, and data-driven decision-making</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Process Optimization Research – Bright LumiTech</div>
+                <div class="project-meta">Feb 2026 – Apr 2026 · Pune</div>
+                <div class="project-description">
+                    <p>Comprehensive workflow analysis identifying and resolving critical bottlenecks in a 5-stage engineering process.</p>
+                    <ul>
+                        <li>Analyzed workflow through 25-30 employee interviews and process mapping</li>
+                        <li>Identified design phase as critical bottleneck consuming 60% of total time</li>
+                        <li>Conducted root cause analysis using Fishbone Diagram methodology</li>
+                        <li>Developed standardized intake templates, SOPs, and process documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS SECTION -->
+        <section id="certifications">
+            <h2>Professional Certifications</h2>
+
+            <div class="cert-category">
+                <div class="cert-category-title">Marketing & Sales</div>
+                <div class="certification-item">
+                    <div class="cert-name">Inbound Certified</div>
+                    <div class="cert-issuer">HubSpot Academy</div>
+                    <div class="cert-meta">Issued Aug 2026 · Valid until Sep 2028</div>
+                    <a href="https://academy.hubspot.com/credentials/01ae72871c764dc8b1d9721c57385af5" target="_blank" class="cert-verify">Verify Credential</a>
+                </div>
+
+                <div class="certification-item">
+                    <div class="cert-name">Digital Marketing Certified</div>
+                    <div class="cert-issuer">HubSpot Academy</div>
+                    <div class="cert-meta">Credential ID: mytn8f1n</div>
+                    <a href="https://academy.hubspot.com/credentials/mytn8f1n" target="_blank" class="cert-verify">Verify Credential</a>
+                </div>
+            </div>
+
+            <div class="cert-category">
+                <div class="cert-category-title">Data & Analytics</div>
+                <div class="certification-item">
+                    <div class="cert-name">Data Fundamentals</div>
+                    <div class="cert-issuer">IBM</div>
+                    <div class="cert-meta">Issued Aug 2026</div>
+                    <div class="cert-meta">Credential ID: c0be871b-80a5-4cdf-ba5a-e73fa3dd1c9c</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education">
+            <h2>Education</h2>
+
+            <div class="education-item">
+                <div class="education-title">Master of Business Administration (MBA)</div>
+                <div class="education-school">Neville Wadia Institute of Management Studies & Research</div>
+                <div class="education-details">
+                    <p><strong>Sep 2025 - Jun 2027</strong> · SGPA: 8.23</p>
+                    <p>Currently serving as Cultural Secretary and Training & Placement Coordinator. Coursework focuses on strategic thinking, operations management, and business acumen.</p>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-title">Bachelor of Business Administration (BBA)</div>
+                <div class="education-school">Savitribai Phule Pune University</div>
+                <div class="education-details">
+                    <p><strong>Jun 2022 - Apr 2025</strong> · SGPA: 8.68</p>
+                    <p>Served as Head of Chess & Debate Team. Performed in theme dance that contributed to college securing Runner-Up at Bhimashankar Karandak 2025.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+            <h2>Skills & Expertise</h2>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Operations & Process</h4>
+                    <ul>
+                        <li>Operations Management</li>
+                        <li>Process Optimization</li>
+                        <li>Workflow Design</li>
+                        <li>SOP Development</li>
+                        <li>Business Process Improvement</li>
+                        <li>Root Cause Analysis</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Data & Analytics</h4>
+                    <ul>
+                        <li>Data Analysis</li>
+                        <li>Business Analytics</li>
+                        <li>Data-driven Decision Making</li>
+                        <li>Demand Forecasting</li>
+                        <li>Excel & Google Sheets</li>
+                        <li>Reporting & Documentation</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Marketing & Digital</h4>
+                    <ul>
+                        <li>Content Creation & Strategy</li>
+                        <li>Social Media Marketing</li>
+                        <li>Digital Marketing</li>
+                        <li>Pinterest Strategy & SEO</li>
+                        <li>Audience Analytics</li>
+                        <li>Photography</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>AI & Automation</h4>
+                    <ul>
+                        <li>AI Automation & Workflows</li>
+                        <li>Prompt Engineering</li>
+                        <li>Claude API Integration</li>
+                        <li>AI-powered Tool Development</li>
+                        <li>Process Automation</li>
+                        <li>Efficiency Optimization</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Leadership & Events</h4>
+                    <ul>
+                        <li>Event Management & Planning</li>
+                        <li>Stakeholder Management</li>
+                        <li>Team Coordination</li>
+                        <li>Cross-functional Collaboration</li>
+                        <li>Public Speaking</li>
+                        <li>Community Building</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Supply Chain & CRM</h4>
+                    <ul>
+                        <li>Inventory Management</li>
+                        <li>Supply Chain Optimization</li>
+                        <li>Customer Relationship Management</li>
+                        <li>Demand Analysis</li>
+                        <li>Forecasting & Planning</li>
+                        <li>Warehouse Management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- VOLUNTEERING SECTION -->
+        <section id="volunteering" class="highlight-success">
+            <h2>Leadership & Community</h2>
+
+            <div class="volunteer-card">
+                <div class="volunteer-title">Campus Ambassador</div>
+                <div class="volunteer-org">GS Global Academy · Part-time, Remote/Pune</div>
+                <div class="volunteer-org">Feb 2026 - Present</div>
+                <div class="volunteer-description">
+                    I help raise awareness about academic programs to prospective students and manage campus communications through multiple channels. Focus on personalized outreach and event coordination.
+                </div>
+                <ul class="volunteer-highlights">
+                    <li>Achieved 35% response rate on targeted outreach via calls, emails, and messaging</li>
+                    <li>Organized 10+ campus engagement events and monitored feedback for continuous improvement</li>
+                    <li>Collaborated across faculty, admissions, and operations teams to execute outreach strategy</li>
+                </ul>
+            </div>
+
+            <div class="volunteer-card">
+                <div class="volunteer-title">Training & Placement Coordinator</div>
+                <div class="volunteer-org">Neville Wadia Institute of Management Studies & Research</div>
+                <div class="volunteer-org">Mar 2026 - Present</div>
+                <div class="volunteer-description">
+                    Supporting placement initiatives by managing student records, coordinating recruitment drives, and connecting companies with opportunities and candidates with careers.
+                </div>
+                <ul class="volunteer-highlights">
+                    <li>Maintained detailed records for 200+ students, organizing internship and placement data for accessibility</li>
+                    <li>Assisted in organizing campus recruitment drives and facilitated communication between companies and candidates</li>
+                    <li>Contributed to interview coordination ensuring smooth communication among all parties</li>
+                </ul>
+            </div>
+
+            <div class="volunteer-card">
+                <div class="volunteer-title">Cultural Secretary</div>
+                <div class="volunteer-org">Neville Wadia Institute of Management Studies & Research</div>
+                <div class="volunteer-org">Sep 2025 - Present</div>
+                <div class="volunteer-description">
+                    Plan and execute college events that matter, from flagship programs to regular student activities that build community and foster engagement.
+                </div>
+                <ul class="volunteer-highlights">
+                    <li>Plan and execute flagship college events and regular student programs</li>
+                    <li>Organize guest lectures, movie screenings, cultural activities, and talent showcases</li>
+                    <li>Coordinate with faculty and student teams for successful delivery of academic and cultural initiatives</li>
+                </ul>
+            </div>
+
+            <div class="volunteer-card">
+                <div class="volunteer-title">Student Council Member</div>
+                <div class="volunteer-org">Neville Wadia Institute of Management Studies & Research</div>
+                <div class="volunteer-org">Sep 2025 - Present</div>
+                <div class="volunteer-description">
+                    Represent student interests and help plan institutional initiatives that enhance campus life and student experience.
+                </div>
+                <ul class="volunteer-highlights">
+                    <li>Represent student interests and contribute to planning of institutional initiatives</li>
+                    <li>Collaborate with faculty and administrative departments on academic and extracurricular activities</li>
+                    <li>Support effective communication and student engagement across the institute</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="mailto:rushabhg893@gmail.com">Email</a>
+                <a href="https://github.com/rushabhghule" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/rushabhghule" target="_blank">LinkedIn</a>
+                <a href="https://in.pinterest.com/rogersg17/" target="_blank">Pinterest</a>
+            </div>
+            <div class="footer-meta">
+                <p>Designed & built by Rushabh Ghule · © 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll and active nav link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                }
+                updateActiveNav();
+            });
+        });
+
+        // Update active nav link on scroll
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.scrollY;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+                    if (navLink) navLink.classList.add('active');
+                }
+            });
+        }
+
+        // Update on scroll
+        window.addEventListener('scroll', () => {
+            updateActiveNav();
+            // Add scrolled class to header for shadow
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Initial check
+        updateActiveNav();
+    </script>
+</body>
+</html>
