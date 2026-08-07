@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rushabh Ghule — Operations, Analytics & AI Automation. MBA candidate specializing in process optimization, data-driven decision making, and AI-powered workflow automation.">
+    <meta name="color-scheme" content="light">
     <title>Rushabh Ghule - Operations | Analytics | AI Automation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -25,6 +30,9 @@
             --bg-subtle: #f8fafb;
             --border: #e0e0e0;
             --divider: #f0f0f0;
+            --font-display: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --scroll-progress: 0%;
         }
 
         html {
@@ -32,11 +40,61 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            font-family: var(--font-body);
             line-height: 1.6;
             color: var(--text-dark);
-            background: var(--bg-subtle);
+            background: linear-gradient(180deg, #f8fafb 0%, #eef4fb 50%, #f8fafb 100%);
+            background-attachment: fixed;
             overflow-x: hidden;
+            transition: background 0.6s ease;
+        }
+
+        a { font-family: inherit; }
+
+        /* Skip link for keyboard/screen-reader users */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0 0 6px 0;
+            z-index: 2000;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            left: 0;
+            top: 0;
+        }
+
+        /* Visible keyboard focus states */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 3px;
+        }
+
+        /* ==================== READING PROGRESS BAR ==================== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: transparent;
+            z-index: 1100;
+            pointer-events: none;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: var(--scroll-progress);
+            background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
+            transition: width 0.1s linear;
         }
 
         /* ==================== HEADER & NAV ==================== */
@@ -70,6 +128,7 @@
         }
 
         .logo {
+            font-family: var(--font-display);
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary);
@@ -99,8 +158,9 @@
             color: var(--text-light);
             font-size: 0.9rem;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
             position: relative;
+            padding: 0.25rem 0;
         }
 
         .nav-links a:hover,
@@ -173,6 +233,7 @@
         }
 
         .hero-text h1 {
+            font-family: var(--font-display);
             font-size: 3rem;
             font-weight: 800;
             line-height: 1.2;
@@ -209,7 +270,7 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: all 0.3s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
             border: 2px solid;
         }
 
@@ -254,6 +315,7 @@
         }
 
         .stat-number {
+            font-family: var(--font-display);
             font-size: 2.5rem;
             font-weight: 800;
             color: var(--accent);
@@ -262,7 +324,7 @@
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-light);
             font-weight: 500;
         }
@@ -307,6 +369,7 @@
             border-radius: 12px;
             border: 1px solid var(--border);
             position: relative;
+            scroll-margin-top: 90px;
         }
 
         section.highlight {
@@ -320,6 +383,7 @@
         }
 
         h2 {
+            font-family: var(--font-display);
             font-size: 2rem;
             margin-bottom: 2rem;
             color: var(--primary);
@@ -339,6 +403,7 @@
         }
 
         h3 {
+            font-family: var(--font-display);
             font-size: 1.3rem;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
@@ -347,6 +412,7 @@
         }
 
         h4 {
+            font-family: var(--font-display);
             font-size: 1rem;
             margin-bottom: 0.75rem;
             color: var(--text-dark);
@@ -423,12 +489,13 @@
             border-radius: 8px;
             border-left: 4px solid var(--accent);
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .skill-category:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 16px rgba(0, 102, 204, 0.1);
+            border-color: rgba(0, 102, 204, 0.3);
         }
 
         .skill-category h4 {
@@ -458,6 +525,7 @@
             color: var(--text-dark);
             font-size: 0.95rem;
             line-height: 1.5;
+            transition: transform 0.2s ease, color 0.2s ease;
         }
 
         .skill-category li:before {
@@ -467,6 +535,11 @@
             font-weight: bold;
         }
 
+        .skill-category li:hover {
+            transform: translateX(4px);
+            color: var(--primary);
+        }
+
         /* ==================== PROJECT CARDS ==================== */
         .project-card {
             background: #f0f7ff;
@@ -474,13 +547,13 @@
             border-radius: 8px;
             border-left: 4px solid var(--success);
             margin-bottom: 2rem;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #d9e8ff;
         }
 
         .project-card:hover {
             box-shadow: 0 8px 20px rgba(0, 102, 204, 0.12);
-            transform: translateX(4px);
+            transform: translateX(4px) translateY(-2px);
         }
 
         .project-card.ai-project {
@@ -501,15 +574,20 @@
             letter-spacing: 0.5px;
         }
 
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
         .project-title {
+            font-family: var(--font-display);
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0;
             font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
         }
 
         .project-meta {
@@ -551,13 +629,18 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
+            margin-top: 0;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background: rgba(0, 102, 204, 0.05);
+            transition: gap 0.3s ease, color 0.3s ease, background 0.3s ease;
+            white-space: nowrap;
         }
 
         .github-link:hover {
             color: var(--primary);
             gap: 0.75rem;
+            background: rgba(0, 102, 204, 0.1);
         }
 
         .github-link::after {
@@ -577,14 +660,16 @@
             margin-bottom: 1.5rem;
             border-left: 4px solid var(--success);
             border: 1px solid #d1fae5;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .education-item:hover {
             box-shadow: 0 6px 16px rgba(16, 185, 129, 0.1);
+            transform: translateY(-2px);
         }
 
         .education-title {
+            font-family: var(--font-display);
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 0.5rem;
@@ -609,7 +694,12 @@
             margin-bottom: 3rem;
         }
 
+        .cert-category:last-child {
+            margin-bottom: 0;
+        }
+
         .cert-category-title {
+            font-family: var(--font-display);
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary);
@@ -634,7 +724,11 @@
             margin-bottom: 1.5rem;
             border-radius: 8px;
             border: 1px solid #fef3c7;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .certification-item:last-child {
+            margin-bottom: 0;
         }
 
         .certification-item:hover {
@@ -662,6 +756,13 @@
             font-weight: 500;
         }
 
+        .cert-id {
+            color: var(--text-lighter);
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 0.15rem;
+        }
+
         .cert-verify {
             display: inline-flex;
             align-items: center;
@@ -670,8 +771,8 @@
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 600;
-            margin-top: 0.75rem;
-            transition: all 0.3s ease;
+            margin-top: 0.85rem;
+            transition: gap 0.3s ease, color 0.3s ease;
         }
 
         .cert-verify:hover {
@@ -695,16 +796,17 @@
             border-radius: 8px;
             border-left: 4px solid var(--success);
             margin-bottom: 2rem;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #d1fae5;
         }
 
         .volunteer-card:hover {
             box-shadow: 0 8px 20px rgba(16, 185, 129, 0.12);
-            transform: translateX(4px);
+            transform: translateX(4px) translateY(-2px);
         }
 
         .volunteer-title {
+            font-family: var(--font-display);
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 0.5rem;
@@ -741,6 +843,123 @@
             position: absolute;
             left: -1.25rem;
             color: var(--success);
+        }
+
+        /* ==================== BACK TO TOP ==================== */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 900;
+            box-shadow: 0 4px 14px rgba(15, 45, 77, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease, background 0.3s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--accent);
+        }
+
+        .back-to-top svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ==================== FLOATING SOCIAL BAR ==================== */
+        .floating-social {
+            position: fixed;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 1.5rem;
+            border-radius: 60px;
+            box-shadow: 0 12px 32px rgba(15, 45, 77, 0.2);
+            border: 1px solid rgba(224, 224, 224, 0.6);
+            z-index: 899;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 102, 204, 0.1);
+            font-weight: 600;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: scale(1.15);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
+            border-color: var(--accent);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2.5;
+        }
+
+        .social-link.email {
+            color: #ea4335;
+        }
+
+        .social-link.email:hover {
+            background: #ea4335;
+        }
+
+        .social-link.linkedin {
+            color: #0a66c2;
+        }
+
+        .social-link.linkedin:hover {
+            background: #0a66c2;
+        }
+
+        .social-link.github {
+            color: var(--text-dark);
+        }
+
+        .social-link.github:hover {
+            background: var(--text-dark);
+        }
+
+        .social-link.pinterest {
+            color: #e60023;
+        }
+
+        .social-link.pinterest:hover {
+            background: #e60023;
         }
 
         /* ==================== FOOTER ==================== */
@@ -815,6 +1034,7 @@
 
             section {
                 padding: 2rem 1.5rem;
+                scroll-margin-top: 76px;
             }
 
             h2 {
@@ -836,33 +1056,78 @@
                 grid-template-columns: 1fr;
             }
 
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .github-link {
+                width: 100%;
+                justify-content: center;
+            }
+
             .footer-links {
                 gap: 1.5rem;
             }
-        }
 
-        /* ==================== SCROLL ANIMATIONS ==================== */
-        @media (prefers-reduced-motion: no-preference) {
-            section, .project-card, .volunteer-card, .education-item, .skill-category, .certification-item {
-                animation: fadeInUp 0.6s ease-out;
+            .back-to-top {
+                bottom: 1.25rem;
+                right: 1.25rem;
+                width: 42px;
+                height: 42px;
             }
 
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+            .floating-social {
+                right: 1.25rem;
+                gap: 1rem;
+                padding: 1.25rem 1.25rem;
+            }
+
+            .social-link {
+                width: 42px;
+                height: 42px;
+            }
+
+            .social-link svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        /* ==================== SCROLL-TRIGGERED REVEAL ==================== */
+        @media (prefers-reduced-motion: no-preference) {
+            .reveal {
+                opacity: 0;
+                transform: translateY(24px);
+                transition: opacity 0.7s ease, transform 0.7s ease;
+            }
+
+            .reveal.in-view {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            .back-to-top {
+                transition: none;
             }
         }
     </style>
 </head>
 <body>
+    <a href="#home" class="skip-link">Skip to main content</a>
+
+    <div class="progress-bar" aria-hidden="true">
+        <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+
     <header>
-        <nav>
+        <nav aria-label="Primary">
             <a href="#home" class="logo">Rushabh Ghule</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
@@ -884,7 +1149,7 @@
                     <p class="description">With experience in process optimization, inventory management, data-driven strategy, and AI automation, I approach complex challenges systematically. Whether it's eliminating workflow inefficiencies, analyzing consumer behavior, or automating repetitive tasks, I focus on delivering real impact.</p>
                     <div class="cta-buttons">
                         <a href="mailto:rushabhg893@gmail.com" class="cta-button primary">Get In Touch</a>
-                        <a href="https://github.com/rushabhghule" target="_blank" class="cta-button secondary">View GitHub</a>
+                        <a href="https://github.com/rushabhghule" target="_blank" rel="noopener" class="cta-button secondary">View GitHub</a>
                     </div>
                 </div>
                 <div class="stats-grid">
@@ -909,23 +1174,7 @@
 
             <div class="hero-contact">
                 <div class="contact-item">
-                    <span>📧</span>
-                    <a href="mailto:rushabhg893@gmail.com">rushabhg893@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <span>💼</span>
-                    <a href="https://www.linkedin.com/in/rushabhghule" target="_blank">LinkedIn</a>
-                </div>
-                <div class="contact-item">
-                    <span>💻</span>
-                    <a href="https://github.com/rushabhghule" target="_blank">GitHub</a>
-                </div>
-                <div class="contact-item">
-                    <span>📸</span>
-                    <a href="https://in.pinterest.com/rogersg17/" target="_blank">Pinterest</a>
-                </div>
-                <div class="contact-item">
-                    <span>📍</span>
+                    <span aria-hidden="true">📍</span>
                     <span>Pune, India</span>
                 </div>
             </div>
@@ -934,7 +1183,7 @@
 
     <main>
         <!-- ABOUT SECTION -->
-        <section id="about" class="highlight">
+        <section id="about" class="highlight reveal">
             <h2>About Me</h2>
             <div class="description">
                 <p>I solve real problems across operations, analytics, and AI automation. My background spans inventory management, process optimization, event coordination, and AI-powered tool development. Whether I'm analyzing why a workflow is slow, finding patterns in consumer behavior, or automating repetitive work, I approach everything the same way: understand the system, identify the gap, and build a solution that delivers measurable results.</p>
@@ -945,7 +1194,7 @@
         </section>
 
         <!-- EXPERIENCE SECTION -->
-        <section id="experience">
+        <section id="experience" class="reveal">
             <h2>Professional Experience</h2>
 
             <h3>Operations Executive</h3>
@@ -999,14 +1248,16 @@
         </section>
 
         <!-- PROJECTS SECTION -->
-        <section id="projects">
+        <section id="projects" class="reveal">
             <h2>Projects & Innovation</h2>
 
             <div class="project-card ai-project">
-                <span class="ai-badge">AI Automation · MVP/Beta</span>
-                <div class="project-title">
-                    BoardMaster
-                    <a href="https://github.com/rushabhghule/boardmaster" target="_blank" class="github-link">View on GitHub</a>
+                <div class="project-header">
+                    <div>
+                        <span class="ai-badge">AI Automation · MVP/Beta</span>
+                        <div class="project-title">BoardMaster</div>
+                    </div>
+                    <a href="https://github.com/rushabhghule/boardmaster" target="_blank" rel="noopener" class="github-link">View on GitHub</a>
                 </div>
                 <div class="project-meta">Current Project - In Development</div>
                 <div class="project-description">
@@ -1021,10 +1272,12 @@
             </div>
 
             <div class="project-card ai-project">
-                <span class="ai-badge">AI Platform Agnostic · Full System</span>
-                <div class="project-title">
-                    CandidatePro
-                    <a href="https://github.com/rushabhghule/candidatepro" target="_blank" class="github-link">View on GitHub</a>
+                <div class="project-header">
+                    <div>
+                        <span class="ai-badge">AI Platform Agnostic · Full System</span>
+                        <div class="project-title">CandidatePro</div>
+                    </div>
+                    <a href="https://github.com/rushabhghule/candidatepro" target="_blank" rel="noopener" class="github-link">View on GitHub</a>
                 </div>
                 <div class="project-meta">Current Project - In Development</div>
                 <div class="project-description">
@@ -1072,39 +1325,58 @@
         </section>
 
         <!-- CERTIFICATIONS SECTION -->
-        <section id="certifications">
+        <section id="certifications" class="reveal">
             <h2>Professional Certifications</h2>
 
             <div class="cert-category">
                 <div class="cert-category-title">Marketing & Sales</div>
+
                 <div class="certification-item">
                     <div class="cert-name">Inbound Certified</div>
                     <div class="cert-issuer">HubSpot Academy</div>
-                    <div class="cert-meta">Issued Aug 2026 · Valid until Sep 2028</div>
-                    <a href="https://academy.hubspot.com/credentials/01ae72871c764dc8b1d9721c57385af5" target="_blank" class="cert-verify">Verify Credential</a>
+                    <div class="cert-meta">Issued Aug 2026</div>
+                    <div class="cert-id">Credential ID: b065tgwv</div>
+                    <a href="https://app-na2.hubspot.com/academy/achievements/b065tgwv/en/1/rushabh-ghule/inbound-certified" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
+                </div>
+
+                <div class="certification-item">
+                    <div class="cert-name">LinkedIn Marketing Strategy</div>
+                    <div class="cert-issuer">LinkedIn</div>
+                    <div class="cert-meta">Issued Aug 2026</div>
+                    <div class="cert-id">Credential ID: m3wuw9bq5tom</div>
+                    <a href="https://verify.skilljar.com/c/m3wuw9bq5tom" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
                 </div>
 
                 <div class="certification-item">
                     <div class="cert-name">Digital Marketing Certified</div>
                     <div class="cert-issuer">HubSpot Academy</div>
-                    <div class="cert-meta">Credential ID: mytn8f1n</div>
-                    <a href="https://academy.hubspot.com/credentials/mytn8f1n" target="_blank" class="cert-verify">Verify Credential</a>
+                    <div class="cert-id">Credential ID: mytn8f1n</div>
+                    <a href="https://academy.hubspot.com/credentials/mytn8f1n" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
                 </div>
             </div>
 
             <div class="cert-category">
                 <div class="cert-category-title">Data & Analytics</div>
+
+                <div class="certification-item">
+                    <div class="cert-name">Google Analytics Certification</div>
+                    <div class="cert-issuer">Google Digital Academy (Skillshop)</div>
+                    <div class="cert-meta">Issued Aug 2026 · Expires Aug 2027</div>
+                    <div class="cert-id">Credential ID: 190917382</div>
+                    <a href="https://skillshop.credential.net/670fdec7-8700-4509-9905-8b95c60f8353" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
+                </div>
+
                 <div class="certification-item">
                     <div class="cert-name">Data Fundamentals</div>
                     <div class="cert-issuer">IBM</div>
                     <div class="cert-meta">Issued Aug 2026</div>
-                    <div class="cert-meta">Credential ID: c0be871b-80a5-4cdf-ba5a-e73fa3dd1c9c</div>
+                    <div class="cert-id">Credential ID: c0be871b-80a5-4cdf-ba5a-e73fa3dd1c9c</div>
                 </div>
             </div>
         </section>
 
         <!-- EDUCATION SECTION -->
-        <section id="education">
+        <section id="education" class="reveal">
             <h2>Education</h2>
 
             <div class="education-item">
@@ -1127,7 +1399,7 @@
         </section>
 
         <!-- SKILLS SECTION -->
-        <section id="skills">
+        <section id="skills" class="reveal">
             <h2>Skills & Expertise</h2>
 
             <div class="skills-grid">
@@ -1206,7 +1478,7 @@
         </section>
 
         <!-- VOLUNTEERING SECTION -->
-        <section id="volunteering" class="highlight-success">
+        <section id="volunteering" class="highlight-success reveal">
             <h2>Leadership & Community</h2>
 
             <div class="volunteer-card">
@@ -1271,62 +1543,143 @@
         <div class="footer-content">
             <div class="footer-links">
                 <a href="mailto:rushabhg893@gmail.com">Email</a>
-                <a href="https://github.com/rushabhghule" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/rushabhghule" target="_blank">LinkedIn</a>
-                <a href="https://in.pinterest.com/rogersg17/" target="_blank">Pinterest</a>
+                <a href="https://github.com/rushabhghule" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/rushabhghule" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://in.pinterest.com/rogersg17/" target="_blank" rel="noopener">Pinterest</a>
             </div>
             <div class="footer-meta">
-                <p>Designed & built by Rushabh Ghule · © 2025</p>
+                <p>Designed & built by Rushabh Ghule · © <span id="footerYear">2026</span></p>
             </div>
         </div>
     </footer>
 
+    <div class="floating-social" role="region" aria-label="Contact and social media links">
+        <a href="mailto:rushabhg893@gmail.com" class="social-link email" title="Email" aria-label="Send email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/rushabhghule" target="_blank" rel="noopener" class="social-link linkedin" title="LinkedIn" aria-label="Visit LinkedIn profile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+        </a>
+        <a href="https://github.com/rushabhghule" target="_blank" rel="noopener" class="social-link github" title="GitHub" aria-label="Visit GitHub profile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+        </a>
+        <a href="https://in.pinterest.com/rogersg17/" target="_blank" rel="noopener" class="social-link pinterest" title="Pinterest" aria-label="Visit Pinterest profile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 12s0-4 4-4 4 3 4 4c0 2-1 3-2 3s-1.5-1-1.5-2c0-.5.25-1 .75-1H13"></path>
+            </svg>
+        </a>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
     <script>
-        // Smooth scroll and active nav link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const target = document.getElementById(targetId);
-                if (target) {
-                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
-                }
-                updateActiveNav();
-            });
-        });
+        (function () {
+            var header = document.querySelector('header');
+            var navLinks = document.querySelectorAll('.nav-links a');
+            var sections = document.querySelectorAll('section[id]');
+            var progressFill = document.getElementById('progressFill');
+            var backToTop = document.getElementById('backToTop');
+            var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Update active nav link on scroll
-        function updateActiveNav() {
-            const sections = document.querySelectorAll('section[id]');
-            const scrollY = window.scrollY;
-            
-            sections.forEach(section => {
-                const sectionHeight = section.offsetHeight;
-                const sectionTop = section.offsetTop - 100;
-                const sectionId = section.getAttribute('id');
-                const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-                
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
-                    if (navLink) navLink.classList.add('active');
-                }
-            });
-        }
+            document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-        // Update on scroll
-        window.addEventListener('scroll', () => {
-            updateActiveNav();
-            // Add scrolled class to header for shadow
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
+            // Smooth in-page navigation (CSS scroll-margin-top handles header offset)
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    var targetId = this.getAttribute('href').substring(1);
+                    var target = document.getElementById(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+                        history.pushState(null, '', '#' + targetId);
+                    }
+                });
+            });
+
+            // Active nav highlighting via IntersectionObserver (more accurate than scroll math)
+            var navObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    var id = entry.target.getAttribute('id');
+                    var link = document.querySelector('.nav-links a[href="#' + id + '"]');
+                    if (!link) return;
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(function (l) { l.classList.remove('active'); });
+                        link.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+            sections.forEach(function (section) { navObserver.observe(section); });
+
+            // Section reveal on scroll (respects prefers-reduced-motion via CSS)
+            if (!prefersReducedMotion) {
+                var revealObserver = new IntersectionObserver(function (entries, obs) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+                document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
             } else {
-                header.classList.remove('scrolled');
+                document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in-view'); });
             }
-        });
 
-        // Initial check
-        updateActiveNav();
+            // Scroll-driven UI: header shadow, reading progress, gradient shift, back-to-top
+            var ticking = false;
+
+            function onScroll() {
+                var scrollTop = window.scrollY || document.documentElement.scrollTop;
+                var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                var progress = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+
+                header.classList.toggle('scrolled', scrollTop > 50);
+                progressFill.style.setProperty('--w', progress + '%');
+                progressFill.style.width = progress + '%';
+                backToTop.classList.toggle('visible', scrollTop > 500);
+
+                // Subtle monochromatic blue shift tied to scroll depth
+                var hue = 208 + (progress / 100) * 6; // 208deg -> 214deg, stays in blue family
+                var lightness = 97 - (progress / 100) * 3; // 97% -> 94%, stays light
+                document.body.style.background =
+                    'linear-gradient(180deg, hsl(' + hue + ', 45%, ' + (lightness + 1) + '%) 0%, ' +
+                    'hsl(' + (hue + 4) + ', 55%, ' + lightness + '%) 50%, ' +
+                    'hsl(' + hue + ', 45%, ' + (lightness + 1) + '%) 100%)';
+
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    window.requestAnimationFrame(onScroll);
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            backToTop.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+            });
+
+            // Initial paint
+            onScroll();
+        })();
     </script>
 </body>
 </html>
