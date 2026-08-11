@@ -234,15 +234,24 @@ Test rigor:
 
 ### STEP 5: HYPERLINK IMPLEMENTATION
 
-**ALL contact links MUST be clickable/actionable:**
-- "Mail Me" → mailto:rushabhg893@gmail.com (CLICKABLE EMAIL)
-- "Call Me" → tel:+918693820563 (CLICKABLE PHONE)
-- "LinkedIn Profile" → https://www.linkedin.com/in/rushabhghule (CLICKABLE)
-- "Github Portfolio" → https://github.com/rushabhghule (CLICKABLE)
-- "Pinterest Profile" → https://in.pinterest.com/rogersg17/ (CLICKABLE, if relevant to role)
+**ALL contact links MUST be clickable/actionable (links only, no text labels):**
+
+**Links to include:**
+- mailto:rushabhg893@gmail.com (EMAIL LINK)
+- tel:+918693820563 (PHONE LINK)
+- https://www.linkedin.com/in/rushabhghule (LINKEDIN LINK)
+- https://github.com/rushabhghule (GITHUB LINK)
+- https://in.pinterest.com/rogersg17/ (PINTEREST LINK, if relevant to role)
 - All project GitHub links → CLICKABLE hyperlinks
 
-**Implementation note:** All links must be blue, underlined, and active in final .docx file. The actual .docx file will have fully functional clickable links.
+**Hyperlink Formatting (CRITICAL):**
+- Format each URL as an actual hyperlink in .docx (not just plain text)
+- Link text = URL itself (e.g., "mailto:rushabhg893@gmail.com" links to "mailto:rushabhg893@gmail.com")
+- Each hyperlink must be: **Blue, underlined, and clickable** in the final .docx file
+- In Word: Insert → Hyperlink → enter URL → Verify link is active
+- Test all links before delivery to ensure they work
+
+**Implementation requirement:** No descriptive labels before links—only the URL itself, formatted as a working hyperlink.
 
 ---
 
@@ -289,7 +298,7 @@ Test rigor:
 - **Summary:** Exactly 3 sentences (3 lines), 40-50% JD keyword density
 - **Certifications:** Only if they PASS the strict test
 - **No generic bullets:** Every bullet must have impact or clear relevance to THIS JD
-- **Contact header:** Mail Me | Call Me | LinkedIn Profile | Github Portfolio (all clickable)
+- **Contact header:** mailto:rushabhg893@gmail.com | tel:+918693820563 | https://www.linkedin.com/in/rushabhghule | https://github.com/rushabhghule (all as ACTIVE, CLICKABLE hyperlinks—blue, underlined, functional)
 
 ---
 
