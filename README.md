@@ -1,8 +1,13 @@
 # Rushabh Ghule — Professional Portfolio
 
-## Experience
+## Overview
+MBA candidate with hands-on experience across operations, inventory management, process improvement, analytics, and digital content. Experienced in managing inventory, coordinating field operations, analyzing workflows, and using data and digital tools to improve everyday business processes.
 
-### IoWeb3 (Operations Executive)
+---
+
+## Professional Experience
+
+### IoWeb3 — Operations Executive
 **Duration:** Mar 2026 – May 2026 (3-month Internship, On-site, Pune)
 
 Led field operations for video and image capture collection across real-world environments within IoWeb3's proprietary training data infrastructure. Coordinated rotating workforce while maintaining production-ready data quality standards and process consistency.
@@ -17,7 +22,7 @@ Led field operations for video and image capture collection across real-world en
 
 ---
 
-### Bright LumiTech Private Limited (Process Optimization Research Intern)
+### Bright LumiTech Private Limited — Process Optimization Research Intern
 **Duration:** Feb 2026 – Mar 2026 (2-month Internship, Hybrid, Pune)
 
 Conducted comprehensive workflow analysis to identify critical bottlenecks in a 5-stage engineering process.
@@ -32,10 +37,10 @@ Conducted comprehensive workflow analysis to identify critical bottlenecks in a 
 
 ---
 
-### Self-Employed (Inventory & Sales Executive)
+### Self-Employed — Inventory & Sales Executive
 **Duration:** Jun 2024 – Aug 2025 (1 year 3 months, On-site, Manchar, Maharashtra)
 
-Managed inventory, sales, and warehouse operations for retail business.
+Managed inventory, sales, and warehouse operations for retail business across 14,000+ SKUs.
 
 **Key Achievements:**
 - Reduced stockouts by 25% through data-driven forecasting based on inventory and customer behavior analysis
@@ -47,102 +52,141 @@ Managed inventory, sales, and warehouse operations for retail business.
 
 ---
 
-## Leadership & Volunteering
+## Projects & Innovation
 
-### Campus Ambassador (GS Global Academy)
-**Duration:** Feb 2026 – Present (Part-time, Remote/Pune)
-
-- Achieved 35% response rate on targeted outreach via calls, emails, and messaging through audience segmentation
-- Organized 10+ campus engagement events and monitored feedback for continuous improvement
-- Collaborated across faculty, admissions, and operations teams to execute outreach strategy
-
----
-
-### Training & Placement Coordinator (NWIMSR)
-**Duration:** Mar 2026 – Present
-
-- Maintained detailed records for 200+ students, organizing internship and placement data for accessibility
-- Coordinated campus recruitment drives and facilitated communication between companies and candidates
-- Contributed to interview coordination ensuring smooth communication among all parties
-
----
-
-### Cultural Secretary (NWIMSR)
-**Duration:** Sep 2025 – Present
-
-- Planned and executed flagship college events and regular student programs
-- Organized guest lectures, movie screenings, cultural activities, and talent showcases
-- Coordinated with faculty and student teams for successful delivery of initiatives
-
----
-
-### Student Council Member (NWIMSR)
-**Duration:** Sep 2025 – Present
-
-- Represented student interests and contributed to planning institutional initiatives
-- Collaborated with faculty and administrative departments on academic and extracurricular activities
-
----
-
-## Projects
-
-### BoardMaster (AI Content Automation Tool)
+### BoardMaster — AI Content Automation Tool
 **Status:** MVP/Beta | **GitHub:** https://github.com/rushabhghule/boardmaster
 
-AI-powered automation tool that streamlines Pinterest pin management using Claude API. Automates curation of pin titles, descriptions, and SEO optimization. Reduces manual content-posting time by 15–30 minutes per session.
+AI-powered automation tool that streamlines Pinterest pin management using Claude API. Automates curation of pin titles, descriptions, and SEO optimization, reducing manual content-posting time by 15–30 minutes per session.
 
 **Tech Stack:** Claude API, Python
 
+**Problem Solved:** Manual posting of 20-30 pins takes 2-3 hours and requires individual optimization. Ensures consistency across pin metadata while freeing time for content strategy.
+
 ---
 
-### CandidatePro (Job Application Prep System)
+### CandidatePro — Job Application Preparation System
 **Status:** In Development | **GitHub:** https://github.com/rushabhghule/candidatepro
 
 Comprehensive job application prep system using Claude API master-prompt methodology. Generates tailored resumes, company research briefs, outreach messages, interview prep, cover letters, and role-specific strategy (L1/L2 phases). System customizes all outputs based on specific job descriptions and candidate experience.
 
-**Demonstrates:** Claude API integration and prompt engineering expertise
+**Demonstrates:** Claude API integration, prompt engineering expertise, and production-ready AI automation.
 
 ---
 
 ### Pinterest Audience Growth Through Organic Content Strategy
 **Duration:** Apr 2023 – Present
 
-Built and managed photography-focused Pinterest account with 1.2M+ monthly audience reach. Applied Pinterest SEO, keyword optimization, and audience insights to maximize visibility. Analyzed performance data to refine strategy and identify high-performing content themes.
+Built and managed photography-focused Pinterest account with 1.2M+ peak monthly views. Applied Pinterest SEO, keyword optimization, and audience insights to maximize visibility. Analyzed performance data to refine strategy and identify high-performing content themes.
 
 **Expertise:** Content creation, digital marketing, data-driven decision-making
+
+**Impact:** Demonstrated ability to build and scale audience engagement through organic growth strategies.
+
+---
+
+## Leadership & Community Involvement
+
+### Campus Ambassador
+**Organization:** GS Global Academy | **Duration:** Feb 2026 – Present (Part-time, Remote/Pune)
+
+I help raise awareness about academic programs to prospective students and manage campus communications through multiple channels.
+
+**Key Achievements:**
+- Achieved 35% response rate on targeted outreach via calls, emails, and messaging through audience segmentation
+- Organized 10+ campus engagement events and monitored feedback for continuous improvement
+- Collaborated across faculty, admissions, and operations teams to execute outreach strategy
+
+---
+
+### Training & Placement Coordinator
+**Organization:** Neville Wadia Institute of Management Studies & Research | **Duration:** Mar 2026 – Present
+
+Supporting placement initiatives by managing student records, coordinating recruitment drives, and connecting companies with opportunities and candidates with careers.
+
+**Key Achievements:**
+- Maintained detailed records for 200+ students, organizing internship and placement data for accessibility
+- Assisted in organizing campus recruitment drives and facilitated communication between companies and candidates
+- Contributed to interview coordination ensuring smooth communication among all parties
+
+---
+
+### Cultural Secretary
+**Organization:** Neville Wadia Institute of Management Studies & Research | **Duration:** Sep 2025 – Present
+
+Plan and execute college events that matter, from flagship programs to regular student activities that build community and foster engagement.
+
+**Key Achievements:**
+- Plan and execute flagship college events and regular student programs
+- Organize guest lectures, movie screenings, cultural activities, and talent showcases
+- Coordinate with faculty and student teams for successful delivery of academic and cultural initiatives
+
+---
+
+### Student Council Member
+**Organization:** Neville Wadia Institute of Management Studies & Research | **Duration:** Sep 2025 – Present
+
+Represent student interests and help plan institutional initiatives that enhance campus life and student experience.
+
+**Key Achievements:**
+- Represent student interests and contribute to planning of institutional initiatives
+- Collaborate with faculty and administrative departments on academic and extracurricular activities
+- Support effective communication and student engagement across the institute
 
 ---
 
 ## Education
 
-**MBA** — Neville Wadia Institute of Management Studies & Research
+**Master of Business Administration (MBA)**
+- Institution: Neville Wadia Institute of Management Studies & Research
 - Duration: Sep 2025 – Jun 2027
 - SGPA: 8.23
+- Focus: Operations management, business analytics, strategic thinking
 
-**BBA** — Savitribai Phule Pune University
+**Bachelor of Business Administration (BBA)**
+- Institution: Savitribai Phule Pune University
 - Duration: Jun 2022 – Apr 2025
 - SGPA: 8.68
 
 ---
 
-## Certifications
+## Professional Certifications
 
 - **Inbound Certified** (HubSpot Academy, Aug 2026, Valid until Sep 2028) — Credential: https://academy.hubspot.com/credentials/01ae72871c764dc8b1d9721c57385af5
-- **Digital Marketing Certified** (HubSpot Academy)
-- **Data Fundamentals** (IBM, Aug 2026)
+- **Digital Marketing Certified** (HubSpot Academy) — Credential ID: mytn8f1n
+- **Google Analytics 4 Certified** (Google Digital Academy, Aug 2026, Expires Aug 2027) — Credential ID: 190917382
+- **Data Fundamentals** (IBM, Aug 2026) — Credential ID: c0be871b-80a5-4cdf-ba5a-e73fa3dd1c9c
 
 ---
 
-## Skills
+## Skills & Expertise
 
-**Operations & Process:** Operations Management | Process Optimization | Workflow Design | SOP Development | Business Process Improvement | Root Cause Analysis | Critical Thinking | Problem Solving | Data Quality Management
+**Operations & Process**
+Operations Management | Process Optimization | Workflow Design | SOP Development | Business Process Improvement | Root Cause Analysis | Critical Thinking | Problem Solving | Data Quality Management
 
-**Data & Analytics:** Data Analysis | Business Analytics | Data-driven Decision Making | Demand Forecasting | Inventory Analysis | Excel & Google Sheets | Reporting | Documentation
+**Data & Analytics**
+Data Analysis | Business Analytics | Data-driven Decision Making | Demand Forecasting | Inventory Analysis | Excel & Google Sheets | Reporting | Documentation
 
-**Marketing & Digital:** Content Creation | Content Strategy | Social Media Marketing | Digital Marketing | Pinterest Strategy & SEO | Audience Analytics | Photography
+**Marketing & Digital**
+Content Creation | Content Strategy | Social Media Marketing | Digital Marketing | Pinterest Strategy & SEO | Audience Analytics | Photography
 
-**AI & Automation:** AI Automation & Workflows | Prompt Engineering | Claude API Integration | AI-powered Tool Development | Process Automation | Efficiency Optimization
+**AI & Automation**
+AI Automation & Workflows | Prompt Engineering | Claude API Integration | AI-powered Tool Development | Process Automation | Efficiency Optimization
 
-**Leadership & Events:** Event Management | Event Planning | Stakeholder Management | Team Coordination | Cross-functional Collaboration | Public Speaking | Community Building | Student Engagement
+**Leadership & Events**
+Event Management | Event Planning | Stakeholder Management | Team Coordination | Cross-functional Collaboration | Public Speaking | Community Building | Student Engagement
 
-**Supply Chain & CRM:** Inventory Management | Supply Chain Optimization | Customer Relationship Management | Demand Analysis | Forecasting & Planning | Warehouse Management
+**Supply Chain & CRM**
+Inventory Management | Supply Chain Optimization | Customer Relationship Management | Demand Analysis | Forecasting & Planning | Warehouse Management
+
+---
+
+## Contact & Connect
+
+**Email:** rushabhg893@gmail.com | **Phone:** +91 8693820563 | **Location:** Pune, India
+
+**Online Profiles:**
+- GitHub: https://github.com/rushabhghule
+- LinkedIn: https://www.linkedin.com/in/rushabhghule
+- Portfolio: https://rushabhghule.github.io
+- Pinterest: https://in.pinterest.com/rogersg17/
