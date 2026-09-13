@@ -48,6 +48,21 @@
             --scroll-progress: 0%;
         }
 
+        /* Dark mode - enhanced for visibility and cleanliness */
+        html.dark-mode {
+            --primary: #90caf9;
+            --primary-light: #64b5f6;
+            --accent: #64b5f6;
+            --accent-light: #1a2f4a;
+            --text-dark: #e8f0f8;
+            --text-light: #b3d9f2;
+            --text-lighter: #7fa3c4;
+            --bg: #0d1117;
+            --bg-subtle: #161b22;
+            --border: #2d3a4d;
+            --divider: #21262d;
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -59,7 +74,11 @@
             background: linear-gradient(180deg, #f8fafb 0%, #eef4fb 50%, #f8fafb 100%);
             background-attachment: fixed;
             overflow-x: hidden;
-            transition: background 0.6s ease;
+            transition: background 0.6s ease, color 0.3s ease;
+        }
+
+        html.dark-mode body {
+            background: linear-gradient(180deg, var(--bg-subtle) 0%, var(--bg) 50%, var(--bg-subtle) 100%);
         }
 
         a { font-family: inherit; }
@@ -124,9 +143,18 @@
             transition: all 0.3s ease;
         }
 
+        html.dark-mode header {
+            background: rgba(13, 17, 23, 0.98);
+            border-bottom-color: rgba(48, 54, 61, 0.5);
+        }
+
         header.scrolled {
             padding: 0.5rem 0;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        html.dark-mode header.scrolled {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
         }
 
         nav {
@@ -266,6 +294,10 @@
             box-sizing: border-box;
             padding: 0;
             margin: 0;
+        }
+
+        html.dark-mode .mobile-menu-content {
+            background: var(--bg-subtle);
         }
 
         .mobile-menu.open .mobile-menu-content {
@@ -417,6 +449,10 @@
             overflow: hidden;
         }
 
+        html.dark-mode .hero {
+            background: linear-gradient(135deg, var(--bg-subtle) 0%, var(--bg) 50%, var(--bg-subtle) 100%);
+        }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -517,6 +553,11 @@
             border-color: var(--primary);
         }
 
+        html.dark-mode .cta-button.secondary {
+            background: var(--bg-subtle);
+            color: var(--primary);
+        }
+
         .cta-button.secondary:hover {
             background: var(--primary);
             color: white;
@@ -531,6 +572,11 @@
             align-items: center;
             justify-content: center;
             gap: 0.6rem;
+        }
+
+        html.dark-mode .cta-button.tertiary {
+            background: var(--bg-subtle);
+            color: var(--primary);
         }
 
         .cta-button.tertiary:hover {
@@ -556,6 +602,10 @@
             border-radius: 12px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
             border: 1px solid var(--border);
+        }
+
+        html.dark-mode .stats-grid {
+            background: var(--bg-subtle);
         }
 
         .stat-item {
@@ -625,9 +675,19 @@
             border-color: #d9e8ff;
         }
 
+        html.dark-mode section.highlight {
+            background: linear-gradient(135deg, #1e3a52 0%, var(--bg-subtle) 100%);
+            border-color: rgba(100, 181, 246, 0.2);
+        }
+
         section.highlight-success {
-            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
-            border-color: #d1fae5;
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            border-color: #d9e8ff;
+        }
+
+        html.dark-mode section.highlight-success {
+            background: linear-gradient(135deg, #1a2f4a 0%, var(--bg-subtle) 100%);
+            border-color: rgba(100, 181, 246, 0.2);
         }
 
         h2 {
@@ -682,10 +742,18 @@
             font-size: 1rem;
         }
 
+        html.dark-mode .role-title {
+            color: #90caf9;
+        }
+
         .role-meta {
             font-size: 0.85rem;
             color: var(--text-lighter);
             font-weight: 500;
+        }
+
+        html.dark-mode .role-meta {
+            color: #8ab4dd;
         }
 
         .description {
@@ -694,12 +762,21 @@
             color: var(--text-dark);
         }
 
+        html.dark-mode .description {
+            color: #b3d9f2;
+        }
+
         .highlights {
             background: var(--accent-light);
             padding: 1.5rem;
             border-left: 4px solid var(--accent);
             margin: 1.5rem 0;
             border-radius: 6px;
+        }
+
+        html.dark-mode .highlights {
+            background: rgba(100, 181, 246, 0.1);
+            border-left: 4px solid var(--accent);
         }
 
         .highlights ul {
@@ -713,6 +790,10 @@
             color: var(--text-dark);
             padding-left: 0.5rem;
             position: relative;
+        }
+
+        html.dark-mode .highlights li {
+            color: #b3d9f2;
         }
 
         .highlights li::before {
@@ -740,10 +821,18 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
+        html.dark-mode .skill-category {
+            background: linear-gradient(135deg, #1e3a52 0%, var(--bg-subtle) 100%);
+        }
+
         .skill-category:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 16px rgba(0, 102, 204, 0.1);
             border-color: rgba(0, 102, 204, 0.3);
+        }
+
+        html.dark-mode .skill-category:hover {
+            box-shadow: 0 8px 16px rgba(100, 181, 246, 0.15);
         }
 
         .skill-category h4 {
@@ -753,6 +842,10 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
+        }
+
+        html.dark-mode .skill-category h4 {
+            color: #90caf9;
         }
 
         .skill-category h4::before {
@@ -769,11 +862,21 @@
         }
 
         .skill-category li {
-            padding: 0.5rem 0;
+            padding: 0.6rem 0;
             color: var(--text-dark);
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 0.9rem;
+            line-height: 1.4;
             transition: transform 0.2s ease, color 0.2s ease;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-height: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        html.dark-mode .skill-category li {
+            color: #b3d9f2;
         }
 
         .skill-category li:before {
@@ -799,14 +902,27 @@
             border: 1px solid #d9e8ff;
         }
 
+        html.dark-mode .project-card {
+            background: linear-gradient(135deg, #1e3a52 0%, var(--bg-subtle) 100%);
+            border: 1px solid rgba(100, 181, 246, 0.2);
+        }
+
         .project-card:hover {
             box-shadow: 0 8px 20px rgba(0, 102, 204, 0.12);
             transform: translateX(4px) translateY(-2px);
         }
 
+        html.dark-mode .project-card:hover {
+            box-shadow: 0 8px 20px rgba(100, 181, 246, 0.15);
+        }
+
         .project-card.ai-project {
             background: linear-gradient(135deg, #ecf2ff 0%, #f0f7ff 100%);
             border-left-color: var(--accent);
+        }
+
+        html.dark-mode .project-card.ai-project {
+            background: linear-gradient(135deg, #1a2a42 0%, #1e3a52 100%);
         }
 
         .ai-badge {
@@ -838,6 +954,10 @@
             font-size: 1.3rem;
         }
 
+        html.dark-mode .project-title {
+            color: #90caf9;
+        }
+
         .project-meta {
             color: var(--text-lighter);
             font-size: 0.85rem;
@@ -845,9 +965,17 @@
             font-weight: 500;
         }
 
+        html.dark-mode .project-meta {
+            color: #8ab4dd;
+        }
+
         .project-description {
             color: var(--text-dark);
             line-height: 1.8;
+        }
+
+        html.dark-mode .project-description {
+            color: #b3d9f2;
         }
 
         .project-description ul {
@@ -885,10 +1013,19 @@
             white-space: nowrap;
         }
 
+        html.dark-mode .github-link {
+            background: rgba(100, 181, 246, 0.1);
+        }
+
         .github-link:hover {
             color: var(--primary);
             gap: 0.75rem;
             background: rgba(0, 102, 204, 0.1);
+        }
+
+        html.dark-mode .github-link:hover {
+            color: var(--accent);
+            background: rgba(100, 181, 246, 0.2);
         }
 
         .github-link::after {
@@ -902,18 +1039,28 @@
 
         /* ==================== EDUCATION SECTION ==================== */
         .education-item {
-            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
             padding: 2rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
-            border-left: 4px solid var(--success);
-            border: 1px solid #d1fae5;
+            border-left: 4px solid #0066cc;
+            border: 1px solid #d9e8ff;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        html.dark-mode .education-item {
+            background: linear-gradient(135deg, #1a2f4a 0%, var(--bg-subtle) 100%);
+            border: 1px solid rgba(100, 181, 246, 0.2);
+            border-left: 4px solid #64b5f6;
+        }
+
         .education-item:hover {
-            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.1);
+            box-shadow: 0 6px 16px rgba(0, 102, 204, 0.1);
             transform: translateY(-2px);
+        }
+
+        html.dark-mode .education-item:hover {
+            box-shadow: 0 6px 16px rgba(100, 181, 246, 0.15);
         }
 
         .education-title {
@@ -924,6 +1071,10 @@
             font-size: 1.1rem;
         }
 
+        html.dark-mode .education-title {
+            color: #90caf9;
+        }
+
         .education-school {
             color: var(--text-light);
             font-size: 0.95rem;
@@ -931,10 +1082,18 @@
             font-weight: 600;
         }
 
+        html.dark-mode .education-school {
+            color: #b3d9f2;
+        }
+
         .education-details {
             font-size: 0.9rem;
             color: var(--text-dark);
             line-height: 1.7;
+        }
+
+        html.dark-mode .education-details {
+            color: #b3d9f2;
         }
 
         /* ==================== CERTIFICATION CARDS ==================== */
@@ -975,6 +1134,12 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        html.dark-mode .certification-item {
+            background: linear-gradient(135deg, #1a2f4a 0%, #0f1f2e 100%);
+            border: 1px solid rgba(100, 181, 246, 0.3);
+            border-left: 4px solid #64b5f6;
+        }
+
         .certification-item:last-child {
             margin-bottom: 0;
         }
@@ -984,11 +1149,19 @@
             transform: translateX(4px);
         }
 
+        html.dark-mode .certification-item:hover {
+            box-shadow: 0 4px 12px rgba(100, 181, 246, 0.15);
+        }
+
         .cert-name {
             font-weight: 700;
             color: var(--primary);
             font-size: 1rem;
             margin-bottom: 0.5rem;
+        }
+
+        html.dark-mode .cert-name {
+            color: #90caf9;
         }
 
         .cert-issuer {
@@ -998,10 +1171,32 @@
             margin-bottom: 0.5rem;
         }
 
+        html.dark-mode .cert-issuer {
+            color: #b3d9f2;
+        }
+
         .cert-meta {
             color: var(--text-lighter);
             font-size: 0.85rem;
             font-weight: 500;
+        }
+
+        html.dark-mode .cert-meta {
+            color: #8ab4dd;
+        }
+
+        .cert-coverage {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 1rem 0;
+            padding: 1rem 0 0 0;
+            border-top: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        html.dark-mode .cert-coverage {
+            color: #b3d9f2;
+            border-top: 1px solid rgba(100, 181, 246, 0.2);
         }
 
         .cert-id {
@@ -1009,6 +1204,10 @@
             font-size: 0.8rem;
             font-weight: 500;
             margin-top: 0.15rem;
+        }
+
+        html.dark-mode .cert-id {
+            color: #8ab4dd;
         }
 
         .cert-verify {
@@ -1039,18 +1238,28 @@
 
         /* ==================== VOLUNTEER CARDS ==================== */
         .volunteer-card {
-            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
             padding: 2rem;
             border-radius: 8px;
-            border-left: 4px solid var(--success);
+            border-left: 4px solid #0066cc;
             margin-bottom: 2rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #d1fae5;
+            border: 1px solid #d9e8ff;
+        }
+
+        html.dark-mode .volunteer-card {
+            background: linear-gradient(135deg, #1a2f4a 0%, var(--bg-subtle) 100%);
+            border: 1px solid rgba(100, 181, 246, 0.2);
+            border-left: 4px solid #64b5f6;
         }
 
         .volunteer-card:hover {
-            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.12);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.12);
             transform: translateX(4px) translateY(-2px);
+        }
+
+        html.dark-mode .volunteer-card:hover {
+            box-shadow: 0 8px 20px rgba(100, 181, 246, 0.15);
         }
 
         .volunteer-title {
@@ -1061,6 +1270,10 @@
             font-size: 1.2rem;
         }
 
+        html.dark-mode .volunteer-title {
+            color: #90caf9;
+        }
+
         .volunteer-org {
             color: var(--text-light);
             font-size: 0.95rem;
@@ -1068,10 +1281,18 @@
             font-weight: 500;
         }
 
+        html.dark-mode .volunteer-org {
+            color: #b3d9f2;
+        }
+
         .volunteer-description {
             color: var(--text-dark);
             line-height: 1.8;
             margin-bottom: 1rem;
+        }
+
+        html.dark-mode .volunteer-description {
+            color: #b3d9f2;
         }
 
         .volunteer-highlights {
@@ -1090,7 +1311,11 @@
             content: '▪';
             position: absolute;
             left: -1.25rem;
-            color: var(--success);
+            color: #0066cc;
+        }
+
+        html.dark-mode .volunteer-highlights li::before {
+            color: #64b5f6;
         }
 
         /* ==================== FLOATING SOCIAL BAR ==================== */
@@ -1110,6 +1335,13 @@
             border: 1px solid rgba(224, 224, 224, 0.6);
             z-index: 899;
             align-items: center;
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        html.dark-mode .floating-social {
+            background: rgba(13, 17, 23, 0.98);
+            border-color: rgba(48, 54, 61, 0.8);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
         }
 
         .social-link {
@@ -1127,12 +1359,22 @@
             font-weight: 600;
         }
 
+        html.dark-mode .social-link {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f1f3a 100%);
+            border-color: rgba(100, 181, 246, 0.3);
+            color: #64b5f6;
+        }
+
         .social-link:hover {
             background: var(--accent);
             color: #fff;
             transform: scale(1.15);
             box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
             border-color: var(--accent);
+        }
+
+        html.dark-mode .social-link:hover {
+            box-shadow: 0 8px 20px rgba(100, 181, 246, 0.4);
         }
 
         .social-link svg {
@@ -1151,6 +1393,10 @@
             color: #0a66c2;
         }
 
+        html.dark-mode .social-link.linkedin {
+            color: #64b5f6;
+        }
+
         .social-link.linkedin:hover {
             background: #0a66c2;
         }
@@ -1164,6 +1410,10 @@
             color: var(--text-dark);
         }
 
+        html.dark-mode .social-link.github {
+            color: #eceff1;
+        }
+
         .social-link.github:hover {
             background: var(--text-dark);
         }
@@ -1174,6 +1424,56 @@
 
         .social-link.pinterest:hover {
             background: #e60023;
+        }
+
+        /* ==================== THEME TOGGLE BUTTON ==================== */
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fff9e6 0%, #fffbeb 100%);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 0;
+            font-weight: 600;
+        }
+
+        html.dark-mode .theme-toggle {
+            background: linear-gradient(135deg, #2a2410 0%, #1f1f10 100%);
+            border-color: rgba(100, 181, 246, 0.3);
+            color: #fbbf24;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        html.dark-mode .theme-toggle:hover {
+            box-shadow: 0 8px 20px rgba(100, 181, 246, 0.3);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        /* Hide/show moon and sun icons */
+        .theme-toggle .sun {
+            display: none;
+        }
+
+        html.dark-mode .theme-toggle .sun {
+            display: inline;
+        }
+
+        html.dark-mode .theme-toggle .moon {
+            display: none;
         }
 
         /* ==================== BACK TO TOP ==================== */
@@ -1223,6 +1523,10 @@
             padding: 3rem 2rem;
             margin-top: 4rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        html.dark-mode footer {
+            background: linear-gradient(135deg, #0f1f2e 0%, #050810 100%);
         }
 
         .footer-content {
@@ -1674,33 +1978,14 @@
 
         <!-- CERTIFICATIONS SECTION -->
         <section id="certifications" class="reveal">
-            <h2>Professional Certifications</h2>
-
-            <div class="cert-category">
-                <div class="cert-category-title">Marketing & Sales</div>
-
-                <div class="certification-item">
-                    <div class="cert-name">Inbound Certified</div>
-                    <div class="cert-issuer">HubSpot Academy</div>
-                    <div class="cert-meta">Issued Aug 2026</div>
-                    <div class="cert-id">Credential ID: b065tgwv</div>
-                    <a href="https://app-na2.hubspot.com/academy/achievements/b065tgwv/en/1/rushabh-ghule/inbound-certified" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
-                </div>
-
-                <div class="certification-item">
-                    <div class="cert-name">LinkedIn Marketing Strategy</div>
-                    <div class="cert-issuer">LinkedIn</div>
-                    <div class="cert-meta">Issued Aug 2026</div>
-                    <div class="cert-id">Credential ID: m3wuw9bq5tom</div>
-                    <a href="https://verify.skilljar.com/c/m3wuw9bq5tom" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
-                </div>
-
-                <div class="certification-item">
-                    <div class="cert-name">Digital Marketing Certified</div>
-                    <div class="cert-issuer">HubSpot Academy</div>
-                    <div class="cert-id">Credential ID: mytn8f1n</div>
-                    <a href="https://academy.hubspot.com/credentials/mytn8f1n" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
-                </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-bottom: 2rem;">
+                <h2 style="margin-bottom: 0; flex: 1;">Professional Certifications</h2>
+                <a href="https://www.linkedin.com/in/rushabhghule/details/certifications/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1rem; background: linear-gradient(135deg, #0a66c2 0%, #084896 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.8rem; transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease; border: none; cursor: pointer; white-space: nowrap; flex-shrink: 0;" aria-label="View certifications on LinkedIn">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" style="width: 14px; height: 14px;">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                    </svg>
+                    View on LinkedIn
+                </a>
             </div>
 
             <div class="cert-category">
@@ -1710,6 +1995,7 @@
                     <div class="cert-name">Google Analytics Certification</div>
                     <div class="cert-issuer">Google Digital Academy (Skillshop)</div>
                     <div class="cert-meta">Issued Aug 2026 · Expires Aug 2027</div>
+                    <div class="cert-coverage">Coverage: Website traffic analysis, conversion tracking, audience segmentation, event measurement, and data-driven insights for optimization</div>
                     <div class="cert-id">Credential ID: 190917382</div>
                     <a href="https://skillshop.credential.net/670fdec7-8700-4509-9905-8b95c60f8353" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
                 </div>
@@ -1718,8 +2004,52 @@
                     <div class="cert-name">Data Fundamentals</div>
                     <div class="cert-issuer">IBM</div>
                     <div class="cert-meta">Issued Aug 2026</div>
+                    <div class="cert-coverage">Coverage: Core data concepts, data collection methods, data quality, analysis fundamentals, and best practices for working with structured data</div>
                     <div class="cert-id">Credential ID: c0be871b-80a5-4cdf-ba5a-e73fa3dd1c9c</div>
                     <a href="https://www.credly.com/org/ibm-skillsbuild/badge/data-fundamentals" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
+                </div>
+            </div>
+
+            <div class="cert-category">
+                <div class="cert-category-title">Marketing & Sales</div>
+
+                <div class="certification-item">
+                    <div class="cert-name">Inbound Certified</div>
+                    <div class="cert-issuer">HubSpot Academy</div>
+                    <div class="cert-meta">Issued Aug 2026</div>
+                    <div class="cert-coverage">Coverage: Inbound methodology, buyer's journey mapping, lead nurturing, content strategy, CRM fundamentals, and demand generation tactics</div>
+                    <div class="cert-id">Credential ID: b065tgwv</div>
+                    <a href="https://app-na2.hubspot.com/academy/achievements/b065tgwv/en/1/rushabh-ghule/inbound-certified" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
+                </div>
+
+                <div class="certification-item">
+                    <div class="cert-name">LinkedIn Marketing Strategy</div>
+                    <div class="cert-issuer">LinkedIn</div>
+                    <div class="cert-meta">Issued Aug 2026</div>
+                    <div class="cert-coverage">Coverage: LinkedIn platform strategy, B2B audience targeting, content distribution, engagement optimization, and professional community building</div>
+                    <div class="cert-id">Credential ID: m3wuw9bq5tom</div>
+                    <a href="https://verify.skilljar.com/c/m3wuw9bq5tom" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
+                </div>
+
+                <div class="certification-item">
+                    <div class="cert-name">Digital Marketing Certified</div>
+                    <div class="cert-issuer">HubSpot Academy</div>
+                    <div class="cert-meta">Issued Aug 2026</div>
+                    <div class="cert-coverage">Coverage: Digital marketing channels, email marketing, marketing automation, campaign management, analytics, and multi-channel strategy</div>
+                    <div class="cert-id">Credential ID: mytn8f1n</div>
+                    <a href="https://academy.hubspot.com/credentials/mytn8f1n" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
+                </div>
+            </div>
+
+            <div class="cert-category">
+                <div class="cert-category-title">HR Operations & Payroll</div>
+
+                <div class="certification-item">
+                    <div class="cert-name">greytHR Certified Training Program</div>
+                    <div class="cert-issuer">Greytip Software · Greytip Academy</div>
+                    <div class="cert-meta">Issued Sep 13, 2026</div>
+                    <div class="cert-coverage">Coverage: Payroll systems and workflows, statutory compliance (PF, ESI, IT), leave management, salary structure design, HR automation, documentation standards, and operational best practices</div>
+                    <a href="https://www.linkedin.com/in/rushabhghule/overlay/Certifications/420341094/treasury/?profileId=ACoAAFr0Z2oBGp1dn32VDwno9LaoAIZ8stSSvyA" target="_blank" rel="noopener" class="cert-verify">Verify Credential</a>
                 </div>
             </div>
         </section>
@@ -1930,6 +2260,10 @@
                 <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
         </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <span class="moon">🌙</span>
+            <span class="sun">☀️</span>
+        </button>
     </div>
 
     <button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">
@@ -2140,6 +2474,40 @@
 
             document.querySelectorAll('main section[id]').forEach(function (section) {
                 sectionMilestoneObserver.observe(section);
+            });
+
+            // ==================== DARK MODE TOGGLE ====================
+            var themeToggle = document.getElementById('themeToggle');
+            var html = document.documentElement;
+
+            // Check for saved theme preference or default to system preference
+            var savedTheme = localStorage.getItem('theme');
+            var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme) {
+                if (savedTheme === 'dark') html.classList.add('dark-mode');
+            } else if (systemDark) {
+                html.classList.add('dark-mode');
+            }
+
+            // Toggle theme on button click
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function () {
+                    html.classList.toggle('dark-mode');
+                    var isDark = html.classList.contains('dark-mode');
+                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                });
+            }
+
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+                if (!localStorage.getItem('theme')) {
+                    if (e.matches) {
+                        html.classList.add('dark-mode');
+                    } else {
+                        html.classList.remove('dark-mode');
+                    }
+                }
             });
         })();
     </script>
