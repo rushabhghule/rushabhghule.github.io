@@ -1,0 +1,16 @@
+# Rushabh Ghule
+
+> MBA candidate (Operations & Supply Chain Management) and portfolio site covering operations, business analytics, process optimization, and AI automation projects.
+
+Rushabh Ghule is an MBA candidate at Neville Wadia Institute of Management Studies & Research, Pune, India, with hands-on experience in operations, inventory management, process optimization, analytics, and digital content. This site is a single-page portfolio.
+
+## Pages
+
+- [Portfolio](https://rushabhghule.github.io/): About, professional experience, projects, certifications, education, skills, and leadership/community involvement.
+- [Resume (PDF)](https://rushabhghule.github.io/Resume%20General.pdf): Downloadable resume.
+
+## Contact
+
+- Email: rushabhg893@gmail.com
+- LinkedIn: https://www.linkedin.com/in/rushabhghule
+- GitHub: https://github.com/rushabhghule
