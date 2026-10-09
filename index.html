@@ -1886,8 +1886,10 @@
         /* ==================== RECOMMENDATION ==================== */
         .recommendation { margin: 1.75rem 0 2.75rem; padding: 1.5rem 1.75rem; border-radius: 12px; background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); border: 1px solid rgba(0, 102, 204, 0.12); border-left: 4px solid var(--primary); position: relative; }
         html.dark-mode .recommendation { background: linear-gradient(135deg, #13263d 0%, #0f1b2b 100%); border-color: rgba(100, 181, 246, 0.25); border-left-color: #64b5f6; }
-        .recommendation::before { content: "\201C"; position: absolute; top: 0.25rem; right: 1.25rem; font-family: 'Sora', Georgia, serif; font-size: 4.5rem; line-height: 1; color: rgba(15, 45, 77, 0.1); }
-        html.dark-mode .recommendation::before { color: rgba(144, 202, 249, 0.15); }
+        .recommendation::before { content: "\201C"; position: absolute; top: 0.4rem; right: 1.4rem; font-family: Georgia, 'Times New Roman', serif; font-size: 6rem; font-weight: 700; line-height: 1; color: var(--accent); opacity: 0.4; pointer-events: none; }
+        html.dark-mode .recommendation::before { color: #90caf9; opacity: 0.45; }
+        .recommendation blockquote { padding-right: 3.5rem; }
+        @media (max-width: 768px) { .recommendation::before { font-size: 4.5rem; right: 1rem; } .recommendation blockquote { padding-right: 2rem; } }
         .recommendation blockquote { margin: 0; }
         .recommendation blockquote p { margin: 0; font-size: 1rem; line-height: 1.75; color: var(--text-dark); }
         html.dark-mode .recommendation blockquote p { color: #e3f2fd; }
@@ -1905,6 +1907,118 @@
         .leader-line { margin: 0.6rem 0 0; font-size: 0.95rem; line-height: 1.6; color: var(--text-light); }
         html.dark-mode .leader-line { color: #b3d9f2; }
         .footer-note { font-size: 0.8rem; opacity: 0.85; margin-top: 0.35rem; }
+
+        /* ==================== HERO REFINEMENT ==================== */
+        :root {
+            --hero-title-size: clamp(2rem, 1.35rem + 2.1vw, 3.1rem);        /* ~32px mobile -> 50px desktop */
+            --logo-size: clamp(1.45rem, 1.2rem + 0.8vw, 1.9rem);
+            --hero-sub-size: clamp(1rem, 0.94rem + 0.25vw, 1.125rem);       /* 16px -> 18px */
+            --hero-body-size: clamp(1rem, 0.95rem + 0.22vw, 1.125rem);      /* 16px -> 18px */
+            --hero-stat-size: clamp(2rem, 1.62rem + 1.1vw, 2.6rem);
+            --hero-gap-xs: 0.5rem;
+            --hero-gap-sm: 1rem;
+            --hero-gap-md: 1.5rem;
+            --hero-gap-lg: 2.25rem;
+        }
+        .hero-header { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(2rem, 4vw, 4rem); align-items: center; margin-bottom: var(--hero-gap-lg); }
+        .hero-text h1 { font-size: var(--hero-title-size); font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; margin: 0 0 var(--hero-gap-sm); color: var(--primary); max-width: 18ch; text-wrap: balance; }
+        .logo { font-size: var(--logo-size); letter-spacing: -0.03em; font-weight: 800; }
+        .hero-text .subtitle { font-size: var(--hero-sub-size); font-weight: 600; line-height: 1.5; margin: 0 0 var(--hero-gap-md); max-width: 46ch; }
+        .hero-text .description { font-size: var(--hero-body-size); line-height: 1.7; margin: 0 0 var(--hero-gap-lg); max-width: 58ch; }
+        .hero-text .cta-buttons { gap: 0.75rem; }
+        .hero-text .cta-button { font-size: 0.95rem; }
+
+        .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; padding: 0; background: transparent; border: 0; box-shadow: none; align-self: center; }
+        html.dark-mode .stats-grid { background: transparent; }
+        .stats-grid .stat-item { text-align: left; padding: 1.6rem 1.5rem; display: flex; flex-direction: column; justify-content: flex-start; min-height: 150px; background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 4px 16px rgba(15, 45, 77, 0.06); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+        html.dark-mode .stats-grid .stat-item { background: var(--bg-subtle); border-color: rgba(100, 181, 246, 0.18); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35); }
+        .stats-grid a.stat-link:hover { transform: translateY(-4px); background: #fff; border-color: rgba(0, 102, 204, 0.45); box-shadow: 0 14px 30px rgba(15, 45, 77, 0.14); }
+        html.dark-mode .stats-grid a.stat-link:hover { background: var(--bg-subtle); border-color: rgba(100, 181, 246, 0.55); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5); }
+        .stats-grid a.stat-link:hover .stat-label { text-decoration: none; }
+        .stats-grid .stat-number { font-size: var(--hero-stat-size); margin-bottom: var(--hero-gap-xs); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+        .stats-grid .stat-label { font-size: 0.9rem; line-height: 1.4; min-height: 2.8em; }
+
+        .hero-contact { margin-top: 0; font-size: 0.9rem; color: var(--text-lighter); }
+        .hero-contact .contact-item { gap: 0.5rem; }
+
+        @media (max-width: 960px) {
+            .hero-header { grid-template-columns: 1fr; gap: var(--hero-gap-lg); }
+        }
+        @media (min-width: 561px) and (max-width: 768px) {
+            .hero-text .cta-buttons { flex-direction: row; flex-wrap: wrap; }
+            .hero-text .cta-button { display: inline-flex; align-items: center; justify-content: center; width: auto; }
+        }
+        @media (max-width: 768px) {
+            .hero-text h1 { margin-bottom: 0.75rem; }
+            .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; gap: 0.75rem; }
+            .stats-grid .stat-item { padding: 1.1rem 1rem; min-height: 130px; }
+            .stats-grid .stat-label { font-size: 0.85rem; }
+        }
+        @media (max-width: 340px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .stats-grid .stat-label { min-height: 0; }
+        }
+
+        .social-link.resume { color: var(--accent); }
+        html.dark-mode .social-link.resume { color: #64b5f6; }
+        .social-link.resume:hover { background: var(--accent); color: #fff; }
+
+        /* ==================== HEADER: ONE ROW ==================== */
+        nav { flex-wrap: nowrap; gap: 1.5rem; max-width: calc(1100px + 4rem); }
+        .logo { white-space: nowrap; flex-shrink: 0; }
+        .nav-right { gap: 1.5rem; flex-shrink: 0; }
+        .nav-links { gap: clamp(1rem, 1.7vw, 1.9rem); }
+        .nav-links a { white-space: nowrap; }
+        @media (min-width: 769px) and (max-width: 1080px) {
+            .nav-links { display: none; }
+            .hamburger-btn { display: flex; }
+            .mobile-menu { display: block; }
+        }
+
+        /* ==================== HERO: LESS NEGATIVE SPACE ==================== */
+        .hero { padding-top: clamp(3rem, 6vw, 4.5rem); padding-bottom: clamp(3rem, 6vw, 4.5rem); }
+        .hero-header { margin-bottom: 0; align-items: stretch; }
+        .hero-text { display: flex; flex-direction: column; justify-content: center; }
+        .hero-text .hero-contact { margin-top: 1.25rem; }
+        @media (min-width: 961px) {
+            .stats-grid { align-self: center; grid-auto-rows: 1fr; gap: 1.25rem; }
+            .stats-grid .stat-item { justify-content: space-between; min-height: 205px; padding: 1.6rem 1.6rem 1.5rem; position: relative; }
+            .stats-grid a.stat-link::after { content: '\2197'; position: absolute; top: 1.1rem; right: 1.2rem; font-size: 1.1rem; color: var(--accent); opacity: 0.35; transition: opacity 0.25s ease, transform 0.25s ease; }
+            .stats-grid a.stat-link:hover::after { opacity: 1; transform: translate(2px, -2px); }
+            .stats-grid .stat-number { font-size: clamp(2.4rem, 1.4rem + 1.6vw, 3.1rem); }
+            .stats-grid .stat-label { font-size: 0.95rem; min-height: 0; }
+        }
+
+        /* ==================== FLOATING BAR: BARE ICONS ==================== */
+        .floating-social { gap: 0.6rem; padding: 0.75rem 0.6rem; }
+        .floating-social .social-link,
+        .floating-social .theme-toggle { width: 42px; height: 42px; border-radius: 10px; background: transparent; border: 0; box-shadow: none; }
+        html.dark-mode .floating-social .social-link,
+        html.dark-mode .floating-social .theme-toggle { background: transparent; border: 0; }
+        .floating-social .social-link svg { width: 26px; height: 26px; }
+        .floating-social .theme-toggle { font-size: 1.55rem; }
+        .floating-social .social-link:hover,
+        .floating-social .theme-toggle:hover { background: transparent; box-shadow: none; transform: scale(1.18); }
+        .floating-social .social-link.github:hover { color: var(--text-dark); }
+        .floating-social .social-link.linkedin:hover { color: #0a66c2; }
+        .floating-social .social-link.pinterest:hover { color: #e60023; }
+        .floating-social .social-link.email { color: var(--primary); }
+        .floating-social .social-link.email:hover { color: #ea4335; }
+        .floating-social .social-link.resume:hover { color: var(--accent); }
+        html.dark-mode .floating-social .social-link.email { color: #90caf9; }
+        html.dark-mode .floating-social .social-link.pinterest, html.dark-mode .floating-social .social-link.pinterest:hover { color: #e60023; }
+        html.dark-mode .floating-social .social-link.linkedin:hover { color: #64b5f6; }
+        html.dark-mode .floating-social .social-link.resume:hover { color: #64b5f6; }
+        .floating-social .social-link:focus-visible,
+        .floating-social .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        @media (max-width: 768px) {
+            .floating-social { gap: 0.35rem; padding: 0.4rem 0.7rem; }
+            .floating-social .social-link, .floating-social .theme-toggle { width: 40px; height: 40px; }
+            .floating-social .social-link svg { width: 24px; height: 24px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .floating-social .social-link:hover, .floating-social .theme-toggle:hover { transform: none; }
+        }
     </style>
 </head>
 <body>
@@ -1925,7 +2039,7 @@
                     <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#skills">Skills</a></li>
-                    <li><a href="#volunteering">Leadership & Community</a></li>
+                    <li><a href="#volunteering">Leadership</a></li>
                 </ul>
                 <a href="rushabh-ghule-resume.pdf" download class="resume-button" aria-label="Download resume PDF" data-track="file_download_resume">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -1958,7 +2072,7 @@
                 <a href="#certifications">Certifications</a>
                 <a href="#education">Education</a>
                 <a href="#skills">Skills</a>
-                <a href="#volunteering">Leadership & Community</a>
+                <a href="#volunteering">Leadership</a>
             </nav>
             <div class="mobile-menu-resume">
                 <a href="rushabh-ghule-resume.pdf" download data-track="file_download_resume">Download Resume</a>
@@ -1971,7 +2085,7 @@
             <div class="hero-header">
                 <div class="hero-text">
                     <h1>I figure out how things work, then make them work better.</h1>
-                    <p class="subtitle">MBA candidate in Pune, with hands-on experience from a stockroom floor to a 1.2M-view content feed.</p>
+                    <p class="subtitle">MBA candidate with hands-on experience across stockrooms, field teams, workflows and content.</p>
                     <p class="description">I’ve managed inventory and sales for a 14,000-part auto-parts business, mapped an engineering workflow to find its biggest bottleneck, written SOPs for a field team, and grown a photography account on Pinterest with no ad budget. Different settings, same habit: understand the system, find the gap, fix it with data, process or the right tool.</p>
                     <div class="cta-buttons">
                         <a href="mailto:rushabhg893@gmail.com" class="cta-button primary" data-track="contact_email">Get in touch</a>
@@ -2006,12 +2120,6 @@
                 </div>
             </div>
 
-            <div class="hero-contact">
-                <div class="contact-item">
-                    <span aria-hidden="true">📍</span>
-                    <span>Pune, India</span>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -2379,7 +2487,7 @@
             </div>
             <div class="footer-meta">
                 <p>Designed & built by Rushabh Ghule · © <span id="footerYear">2026</span></p>
-                <p class="footer-note">Instrumented with Google Analytics 4: custom events track resume downloads, contact clicks and profile visits.</p>
+                <p class="footer-note">Measured with GA4 custom event tracking.</p>
             </div>
         </div>
     </footer>
@@ -2405,12 +2513,8 @@
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
             </svg>
         </a>
-        <a href="rushabh-ghule-resume.pdf" download class="social-link" style="background: var(--accent); color: white;" title="Download Resume" aria-label="Download resume PDF" data-track="file_download_resume">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
+        <a href="rushabh-ghule-resume.pdf" download class="social-link resume" title="Download Resume" aria-label="Download resume PDF" data-track="file_download_resume">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
         </a>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
             <span class="moon">🌙</span>
