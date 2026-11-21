@@ -1,7 +1,12 @@
-# rushabhghule.github.io
+# Rushabh Ghule
 
-Personal portfolio of Rushabh Ghule, an MBA candidate in Pune.
+MBA candidate and marketing analyst based in Pune, India.
+Building in growth, content and performance marketing.
 
-Live site: https://rushabhghule.github.io/
+Grew a photography account to **1.2M+ monthly viewers** with no ad budget —
+using data, classification systems and organic SEO.
 
-A single static HTML file with no framework, hosted on GitHub Pages.
+**Links**
+- 🌐 Portfolio: [rushabhghule.github.io](https://rushabhghule.github.io)
+- 💼 LinkedIn: [linkedin.com/in/rushabhghule](https://www.linkedin.com/in/rushabhghule)
+- 📌 Pinterest: [pinterest.com/rogersg17](https://www.pinterest.com/rogersg17)
